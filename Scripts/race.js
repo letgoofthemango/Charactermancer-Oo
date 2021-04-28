@@ -16,24 +16,24 @@ const CharacterRaces = {
     TIEFLING: "Tiefling"
 }
 
-class Race{
+class Race {
 
-    constructor(){
-        this.name
-        this.size
-        this.speed
-        this.strengthBonus
-        this.dexterityBonus
-        this.constitutionBonus
-        this.intelligenceBonus
-        this.wisdomBonus
-        this.charismaBonus
-        this.otherStatBonuses
-        this.darkvision
-        this.feat
-        this.languageProficiency
-        this.extraLanguageProficiency
-        this.toolProficiency
-        this.extraToolProficiency
+    constructor(name, size, speed, strengthBonus, dexterityBonus, constitutionBonus, intelligenceBonus, wisdomBonus, charismaBonus, otherStatBonuses, darkvision, feat, languageProficiency, extraLanguages, toolProficiency, extraToolProficiency) {
+        this.name = name,
+            this.size = size,
+            this.speed = speed,
+            this.strengthBonus = strengthBonus,
+            this.dexterityBonus = dexterityBonus,
+            this.constitutionBonus = constitutionBonus,
+            this.intelligenceBonus = intelligenceBonus,
+            this.wisdomBonus = wisdomBonus,
+            this.charismaBonus = charismaBonus,
+            this.otherStatBonuses = otherStatBonuses,
+            this.darkvision = darkvision,
+            this.feat = feat,
+            this.languageProficiency = languageProficiency,
+            this.extraLanguages = extraLanguages,
+            this.toolProficiency = toolProficiency,
+            this.extraToolProficiency = extraToolProficiency
     }
 }

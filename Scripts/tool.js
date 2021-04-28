@@ -37,6 +37,7 @@ const ToolNames = {
     NAVIGATOR: "navigator's tools",
     POISONER: "poisoner's kit",
     THIEVES: "thieves' tools",
+    VEHICLES: "vehicles (land or sea)"
 }
 
 const ToolTypes = {
