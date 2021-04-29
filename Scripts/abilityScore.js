@@ -31,11 +31,9 @@ class AbilityScore {
             return this.mod;
         }
     }
-
-    set saveProf(value) {
-        this.saveProficiency = value;
-    }
 }
+
+
 
 // ignore rest
 

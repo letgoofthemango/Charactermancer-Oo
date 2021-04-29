@@ -16,19 +16,28 @@ const CharacterRaces = {
     TIEFLING: "Tiefling"
 }
 
+class RaceBonus {
+    constructor(abilityName, bonus, extraBonus=false) {
+        // TODO
+    }
+}
+
 class Race {
 
-    constructor(name, size, speed, strengthBonus, dexterityBonus, constitutionBonus, intelligenceBonus, wisdomBonus, charismaBonus, otherStatBonuses, darkvision, feat, languageProficiency, extraLanguages, toolProficiency, extraToolProficiency) {
+    constructor(name, size, speed, darkvision, feat, languageProficiency, extraLanguages, toolProficiency, extraToolProficiency) {
+        // TODO: ability score constraints validation
+
         this.name = name,
             this.size = size,
             this.speed = speed,
-            this.strengthBonus = strengthBonus,
-            this.dexterityBonus = dexterityBonus,
-            this.constitutionBonus = constitutionBonus,
-            this.intelligenceBonus = intelligenceBonus,
-            this.wisdomBonus = wisdomBonus,
-            this.charismaBonus = charismaBonus,
-            this.otherStatBonuses = otherStatBonuses,
+            this.boni = boni // Array of RaceBonus
+            // this.strengthBonus = strengthBonus,
+            // this.dexterityBonus = dexterityBonus,
+            // this.constitutionBonus = constitutionBonus,
+            // this.intelligenceBonus = intelligenceBonus,
+            // this.wisdomBonus = wisdomBonus,
+            // this.charismaBonus = charismaBonus,
+            // this.otherStatBonuses = otherStatBonuses,
             this.darkvision = darkvision,
             this.feat = feat,
             this.languageProficiency = languageProficiency,

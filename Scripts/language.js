@@ -28,33 +28,39 @@ class Language {
         this.name = name;
         this.proficiency = false;
     }
-    set prof(value) {
-        this.proficiency = value;
+}
+
+class LanguageView {
+
+    get view() {
+        return // <span>
     }
 }
 
-let abyssal = new Language(LanguageNames.ABYSSAL);
-let auran = new Language(LanguageNames.ABYSSAL);
-let aquan = new Language(LanguageNames.ABYSSAL);
-let celestial = new Language(LanguageNames.ABYSSAL);
-let common = new Language(LanguageNames.ABYSSAL);
-let deepspeech = new Language(LanguageNames.ABYSSAL);
-let draconic = new Language(LanguageNames.ABYSSAL);
-let druidic = new Language(LanguageNames.ABYSSAL);
-let dwarvish = new Language(LanguageNames.ABYSSAL);
-let elvish = new Language(LanguageNames.ABYSSAL);
-let giant = new Language(LanguageNames.ABYSSAL);
-let gnomish = new Language(LanguageNames.ABYSSAL);
-let goblin = new Language(LanguageNames.ABYSSAL);
-let halfling = new Language(LanguageNames.ABYSSAL);
-let ignan = new Language(LanguageNames.ABYSSAL);
-let infernal = new Language(LanguageNames.ABYSSAL);
-let orc = new Language(LanguageNames.ABYSSAL);
-let primordial = new Language(LanguageNames.ABYSSAL);
-let sylvan = new Language(LanguageNames.ABYSSAL);
-let terran = new Language(LanguageNames.ABYSSAL);
-let thieves = new Language(LanguageNames.ABYSSAL);
-let undercommon = new Language(LanguageNames.ABYSSAL);
+// ignore rest
+
+// let abyssal = new Language(LanguageNames.ABYSSAL);
+// let auran = new Language(LanguageNames.AURAN);
+// let aquan = new Language(LanguageNames.AQUAN);
+// let celestial = new Language(LanguageNames.CELESTIAL);
+// let common = new Language(LanguageNames.COMMON);
+// let deepspeech = new Language(LanguageNames.DEEPSPEECH);
+// let draconic = new Language(LanguageNames.DRACONIC);
+// let druidic = new Language(LanguageNames.DRUIDIC);
+// let dwarvish = new Language(LanguageNames.DWARVISH);
+// let elvish = new Language(LanguageNames.ELVISH);
+// let giant = new Language(LanguageNames.GIANT);
+// let gnomish = new Language(LanguageNames.GNOMISH);
+// let goblin = new Language(LanguageNames.GOBLIN);
+// let halfling = new Language(LanguageNames.HALFLING);
+// let ignan = new Language(LanguageNames.IGNAN);
+// let infernal = new Language(LanguageNames.INFERNAL);
+// let orc = new Language(LanguageNames.ORC);
+// let primordial = new Language(LanguageNames.PRIMORDIAL);
+// let sylvan = new Language(LanguageNames.SYLVAN);
+// let terran = new Language(LanguageNames.TERRAN);
+// let thieves = new Language(LanguageNames.THIEVES);
+// let undercommon = new Language(LanguageNames.UNDERCOMMON);
 
 function resetLanguageProficiencies() {
     abyssal.proficiency = false;

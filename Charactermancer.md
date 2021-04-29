@@ -155,3 +155,84 @@ All other properties are calculated.
    5. Select features
   
 5. Select name, alignment, description etc.
+
+
+## On Property (conceptual)
+
+Is an (abstractly speaking) attribute or state of an object.
+E.g. obj.property1
+dynamical attribute
+
+Optionally a getter o a setter.
+
+Getter:
+e.g. obj.property1
+obj.getProperty1() // Java
+
+Setter:
+e.g. 
+obj.property1 = newValue
+obj.setProperty1(newValue) // Java
+
+
+Version 1
+
+class A { // simplest version
+  constructor(property1) {
+    this.property1 = property1
+  }
+
+}
+
+a = new A(something)
+a.property1 // Getter
+a.property1 = newSomething // Setter
+
+
+Version 2
+
+class A { // JS style
+  constructor(property1) {
+    this._property1 = property1  // private
+  }
+
+  get property1() {
+    return this._property1
+  }
+
+  set property1(newVal) {
+    this._property1 = newVal
+  }
+}
+
+a = new A(something)
+a.property1 // Getter
+a.property1 = newSomething // Setter
+
+
+Version 3
+
+class A { // Java style
+  constructor(property1) {
+    this.property1 = property1  // private
+  }
+
+  getProperty1() {
+    return this.property1
+  }
+
+  setProperty1(newVal) {
+    this.property1 = newVal
+  }
+}
+
+a = new A(something)
+a.getProperty1() // Getter
+a.setProperty1(newSomething) // Setter
+
+
+
+Comparision
+
+Version 1 and 2: same form of access
+Version 2 and 3: same structure

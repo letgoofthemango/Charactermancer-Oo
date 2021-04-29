@@ -31,33 +31,16 @@ class Skill {
         return this.depedentAbility.mod + this.proficiency;
     }
 
-    set prof(value) {
-        this.proficiency = value;
-    }
-
-    set possible(value){
-        this.possibleSkill = value;
-    }
 }
 
-let acrobatics = new Skill(Skillnames.ACROBATICS, dexterity);
-let animalHandling = new Skill(Skillnames.ANIMALHANDLING, wisdom);
-let arcana = new Skill(Skillnames.ARCANA, intelligence);
-let athletics = new Skill(Skillnames.ATHLETICS, strength);
-let deception = new Skill(Skillnames.DECEPTION, charisma);
-let history = new Skill(Skillnames.HISTORY, intelligence);
-let insight = new Skill(Skillnames.INSIGHT, wisdom);
-let intimidation = new Skill(Skillnames.INTIMIDATION, charisma);
-let investigation = new Skill(Skillnames.INVESTIGATION, intelligence);
-let medicine = new Skill(Skillnames.MEDICINE, wisdom);
-let nature = new Skill(Skillnames.NATURE, intelligence);
-let perception = new Skill(Skillnames.PERCEPTION, wisdom);
-let performance = new Skill(Skillnames.PERFORMANCE, charisma);
-let persuasion = new Skill(Skillnames.PERSUASION, charisma);
-let religion = new Skill(Skillnames.RELIGION, intelligence);
-let sleightOfHand = new Skill(Skillnames.SLEIGHTOFHAND, dexterity);
-let stealth = new Skill(Skillnames.STEALTH, dexterity);
-let survival = new Skill(Skillnames.SURVIVAL, wisdom);
+class SkillView {
+    constructor(skill) {
+        // TODO
+    }
+    get view() {
+        return `<li id="summaryAthletic" hidden>Athletics<span id="skillsID3" hidden></span></li>`
+    }
+}
 
 // function resetSkillProficiencies() {
 //     acrobatics.proficiency = SkillLevel.UNSKILLED;
