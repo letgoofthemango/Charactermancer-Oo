@@ -65,7 +65,6 @@ class Tool {
 
 // ignore rest
 
-let alchemist = new Tool(ToolNames.ALCHEMIST, ToolTypes.ARTISAN, 0, 50, 8, "Alchemist's supplies enable a character to produce useful concoctions, such as acid or alchemist's fire. Components: Alchemist's supplies include two glass beakers, a metal frame to hold a beaker in place over an open flame, a glass stirring rod, a small mortar and pestle, and a pouch of common alchemical ingredients, including salt, powdered iron, and purified water.")
 
 // function resetToolProficiencies() {
 //     char.toolProficiencies.alchemist = false;

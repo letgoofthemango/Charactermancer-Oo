@@ -18,6 +18,12 @@ const Skillnames = {
     STEALTH: "Stealth",
     SURVIVAL: "Survival"
 };
+const SkillLevel = {
+    UNSKILLED: 0,
+    HALFPROFICIENT: 1,
+    PROFICIENT: 2,
+    EXPERTISE: 4,
+}
 
 class Skill {
     constructor(name, ability) {
