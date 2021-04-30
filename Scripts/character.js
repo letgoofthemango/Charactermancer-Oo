@@ -23,6 +23,7 @@ class Character {
 
         this.numberOfSkillsToChoose;
         this.hasShield = false;
+
         this.toolProficiencies = [
             new Tool(ToolNames.ALCHEMIST, ToolTypes.ARTISAN, 0, 50, 8, "Alchemist's supplies enable a character to produce useful concoctions, such as acid or alchemist's fire. Components: Alchemist's supplies include two glass beakers, a metal frame to hold a beaker in place over an open flame, a glass stirring rod, a small mortar and pestle, and a pouch of common alchemical ingredients, including salt, powdered iron, and purified water."),
             new Tool(ToolNames.BAGPIPES, ToolTypes.INSTRUMENT, 0, 30, 6, "Proficiency with a musical instrument indicates you are familiar with the techniques used to play it. You also have knowledge of some songs commonly performed with that instrument."),
@@ -62,7 +63,7 @@ class Character {
             new Tool(ToolNames.VIOL, ToolTypes.INSTRUMENT, 0, 30, 1, "Proficiency with a musical instrument indicates you are familiar with the techniques used to play it. You also have knowledge of some songs commonly performed with that instrument."),
             new Tool(ToolNames.WEAVER, ToolTypes.ARTISAN, 0, 1, 5, "Weaver's tools allow you to create cloth and tailor it into articles of clothing. Components: Weaver's tools include thread, needles, and scraps of cloth. You know how to work a loom, but such equipment is too large to transport."),
             new Tool(ToolNames.WOODCARVER, ToolTypes.ARTISAN, 0, 1, 5, "Woodcarver's tools allow you to craft intricate objects from wood, such as wooden tokens or arrows. Components: Woodcarver's tools consist of a knife, a gouge, and a small saw.")
-        ]
+        ];
 
         this.languageProficiencies = [
             new Language(LanguageNames.ABYSSAL),
@@ -87,7 +88,7 @@ class Character {
             new Language(LanguageNames.TERRAN),
             new Language(LanguageNames.THIEVES),
             new Language(LanguageNames.UNDERCOMMON)
-        ]
+        ];
 
         this.skillProficiencies = [
             new Skill(Skillnames.ACROBATICS, dexterity),
@@ -132,6 +133,9 @@ class Character {
         }
     }
 
+        addArmour(armour) {
+            // validation code
+        }
 
 
 

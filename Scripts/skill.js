@@ -22,8 +22,14 @@ const SkillLevel = {
     UNSKILLED: 0,
     HALFPROFICIENT: 1,
     PROFICIENT: 2,
-    EXPERTISE: 4,
+    EXPERTISE: 4
+    
 }
+
+// class SkillProficiency {
+//     skill
+//     proficiency
+// }
 
 class Skill {
     constructor(name, ability) {
@@ -39,12 +45,22 @@ class Skill {
 
 }
 
-class SkillView {
-    constructor(skill) {
-        // TODO
+// class SkillView {
+//     constructor(skill) {
+//         // TODO
+//     }
+//     get view() {
+//         return `<li id="summaryAthletic" hidden>Athletics<span id="skillsID3" hidden></span></li>`
+//     }
+// } 
+
+class SkillsComponent {
+    constructor(skills) {
+
     }
+
     get view() {
-        return `<li id="summaryAthletic" hidden>Athletics<span id="skillsID3" hidden></span></li>`
+        // list of skills in a div
     }
 }
 
