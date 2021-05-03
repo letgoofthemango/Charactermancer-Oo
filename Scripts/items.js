@@ -162,7 +162,7 @@ new Tool(ToolName.VEHICLES, ItemType.ARTISAN, 0, 0, 0, 0, "You know how to opera
 new Tool(ToolName.VIOL, ItemType.INSTRUMENT, 0, 0, 30, 1, "Proficiency with a musical instrument indicates you are familiar with the techniques used to play it. You also have knowledge of some songs commonly performed with that instrument."),
 new Tool(ToolName.WEAVER, ItemType.ARTISAN, 0, 0, 1, 5, "Weaver's tools allow you to create cloth and tailor it into articles of clothing. Components: Weaver's tools include thread, needles, and scraps of cloth. You know how to work a loom, but such equipment is too large to transport."),
 new Tool(ToolName.WOODCARVER, ItemType.ARTISAN, 0, 0, 1, 5, "Woodcarver's tools allow you to craft intricate objects from wood, such as wooden tokens or arrows. Components: Woodcarver's tools consist of a knife, a gouge, and a small saw.")
-]
+];
 
 // function resetToolProficiencies() {
 //     char.toolProficiencies.alchemist = false;

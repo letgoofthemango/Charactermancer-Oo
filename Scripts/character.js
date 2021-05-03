@@ -14,52 +14,20 @@ const CharacterClasses = {
 }
 
 class CharacterClass {
-    constructor() {
-        // name
-        // hitDice
-        // hasShield
-        // subClass
-        // toolProficiencies;
-        this.languageProficiencies = languages.map(x => x); //SYNTHAX von eine Map daraus machen!!!!! udn auch für skills, tools, spells
-        this.skillProficiencies = skills.map(x => x); //SYNTHAX von eine Map daraus machen!!!!! udn auch für skills, tools, spells
-    }
-    getLanguage(languageName) {
-        for (const language of charClass.languageProficiencies) {
-            if (language.name === languageName) {
-                return language
-            }
+    constructor(character, hitdice, strengthSave, dexteritySave, constitutionSave, intelligenceSave, wisdomSave, charismaSave, lightProf, mediumProf, heavyProf, shieldsProf) {
+        this.character = character;
+        this.characterSubClass;
+        this.saveProficiencies = {
+            strength: strengthSave,
+            dexterity: dexteritySave,
+            constitution: constitutionSave,
+            intelligence: intelligenceSave,
+            wisdom: wisdomSave,
+            charisma: charismaSave,
         }
-    }
-    
-    getSkill(skillName) {
-        for (const skill of charClass.skillProficiencies) {
-            if (skill.name === skillName) {
-                return skill
-            }
-        }
-    }
-}
-let charClass = new CharacterClass();
-
-
-// class Barbarian extends CharacterClass {
-//     addToolProficiency(
-//         // TODo
-//     )
-// }
-
-class Character {
-    constructor() {
-        this.characterName;
-        this.playerName;
-        this.characterLevel = 1;
-        // this.selectedCharacterClass;
-        // this.characterSubClass;
-        this.numberOfSkillsToChoose;
-        // this.hasShield;
         this.armorClass;
-        this.characterSpeed;
-        this.characterVision;
+        this.characterHitpoints;
+        this.hitDice = hitdice;
         this.characterFightingStyle;
         this.characterPossibleToolChoices;
         this.characterMaxToolProficiencies;
@@ -69,8 +37,63 @@ class Character {
         this.characterFeats;
         this.characterAttacks;
         this.firstLevelSpellSlots;
-        this.characterHitpoints;
-        // this.hitDice = 12;
+        this.numberOfSkillsToChoose;
+        this.languageProficiencies = languages.map(x => x);
+        this.skillProficiencies = skills.map(x => x);
+        this.toolProficiencies = tools.map(x => x);
+        this.armorProficiencies = {
+            none: true,
+            light: lightProf,
+            medium: mediumProf,
+            heavy: heavyProf,
+            shields: shieldsProf
+        };
+    }
+    getLanguage(languageName) {
+        for (const language of this.languageProficiencies) {
+            if (language.name === languageName) {
+                return language
+            }
+        }
+    }
+
+    getSkill(skillName) {
+        for (const skill of this.skillProficiencies) {
+            if (skill.name === skillName) {
+                return skill
+            }
+        }
+    }
+    getTool(toolName) {
+        for (const tool of this.toolProficiencies) {
+            if (tool.name === toolName) {
+                return tool
+            }
+        }
+    }
+}
+let charClass = new CharacterClass();
+
+class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    constructor(character) {
+        dfklsgöljidgfkljdmgfkl
+        d
+        asfg
+        dfklsgöljidgfkljdmgfkldfs
+
+    }
+
+
+
+}
+
+class Character {
+    constructor() {
+        this.characterName;
+        this.playerName;
+        this.characterLevel = 1;
+        this.characterSpeed;
+        this.characterVision;
         this.characterRace;
         this.characterAlignment;
         this.characterAge;
@@ -81,55 +104,10 @@ class Character {
         this.characterHairColor;
         this.characterBackstory;
         this.characterBackground;
-        this.armorProficiencies = {
-            none: true,
-            light: false,
-            medium: false,
-            heavy: false,
-            shields: false
-        };
-
-        // this.toolProficiencies = [
-        //     alchemist,
-        //     bagpipes,
-        //     brewer,
-        //     calligrapher,
-        //     cards,
-        //     carpenter,
-        //     cartographer,
-        //     cobbler,
-        //     cook,
-        //     dice,
-        //     disguise,
-        //     dragonante,
-        //     dragonchess,
-        //     drum,
-        //     dulcimer,
-        //     flute,
-        //     forgery,
-        //     glasblower,
-        //     herbalism,
-        //     horn,
-        //     jewler,
-        //     leatherworker,
-        //     lute,
-        //     lyre,
-        //     mason,
-        //     navigator,
-        //     painter,
-        //     pan,
-        //     poisoner,
-        //     potter,
-        //     shawm,
-        //     smith,
-        //     thieves,
-        //     tinker,
-        //     vehicles,
-        //     viol,
-        //     weaver,
-        //     woodworker
-        // ];
     }
+
+    // getters für diverse sachen von hitpoints etc. im default hier in der Klasse deklarieren und dann in den einzelnen Characterclasses redeklarieren!!!
+
 
     // this.spellsKnown= mapping synthax!!!
 

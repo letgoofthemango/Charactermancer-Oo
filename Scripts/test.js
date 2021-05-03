@@ -1,0 +1,1 @@
+let pala= new CharacterClass(char,10,false,false,false,false,true,true,true,true,true,true,true);
