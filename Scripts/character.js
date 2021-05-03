@@ -13,15 +13,50 @@ const CharacterClasses = {
     WIZARD: "Wizard"
 }
 
+class CharacterClass {
+    constructor() {
+        // name
+        // hitDice
+        // hasShield
+        // subClass
+        // toolProficiencies;
+        this.languageProficiencies = languages.map(x => x); //SYNTHAX von eine Map daraus machen!!!!! udn auch für skills, tools, spells
+        this.skillProficiencies = skills.map(x => x); //SYNTHAX von eine Map daraus machen!!!!! udn auch für skills, tools, spells
+    }
+    getLanguage(languageName) {
+        for (const language of charClass.languageProficiencies) {
+            if (language.name === languageName) {
+                return language
+            }
+        }
+    }
+    
+    getSkill(skillName) {
+        for (const skill of charClass.skillProficiencies) {
+            if (skill.name === skillName) {
+                return skill
+            }
+        }
+    }
+}
+let charClass = new CharacterClass();
+
+
+// class Barbarian extends CharacterClass {
+//     addToolProficiency(
+//         // TODo
+//     )
+// }
+
 class Character {
     constructor() {
         this.characterName;
         this.playerName;
         this.characterLevel = 1;
-        this.characterClass;
-        this.characterSubClass;
+        // this.selectedCharacterClass;
+        // this.characterSubClass;
         this.numberOfSkillsToChoose;
-        this.hasShield;
+        // this.hasShield;
         this.armorClass;
         this.characterSpeed;
         this.characterVision;
@@ -35,7 +70,7 @@ class Character {
         this.characterAttacks;
         this.firstLevelSpellSlots;
         this.characterHitpoints;
-        this.hitDice = 6;
+        // this.hitDice = 12;
         this.characterRace;
         this.characterAlignment;
         this.characterAge;
@@ -52,106 +87,61 @@ class Character {
             medium: false,
             heavy: false,
             shields: false
-        }
+        };
 
-        this.toolProficiencies = [
-            alchemist,
-            bagpipes,
-            brewer,
-            calligrapher,
-            cards,
-            carpenter,
-            cartographer,
-            cobbler,
-            cook,
-            dice,
-            disguise,
-            dragonante,
-            dragonchess,
-            drum,
-            dulcimer,
-            flute,
-            forgery,
-            glasblower,
-            herbalism,
-            horn,
-            jewler,
-            leatherworker,
-            lute,
-            lyre,
-            mason,
-            navigator,
-            painter,
-            pan,
-            poisoner,
-            potter,
-            shawm,
-            smith,
-            thieves,
-            tinker,
-            vehicles,
-            viol,
-            weaver,
-            woodworker
-        ];
-
-        this.languageProficiencies = [
-            new Language(LanguageNames.ABYSSAL),
-            new Language(LanguageNames.AURAN),
-            new Language(LanguageNames.AQUAN),
-            new Language(LanguageNames.CELESTIAL),
-            new Language(LanguageNames.COMMON),
-            new Language(LanguageNames.DEEPSPEECH),
-            new Language(LanguageNames.DRACONIC),
-            new Language(LanguageNames.DRUIDIC),
-            new Language(LanguageNames.DWARVISH),
-            new Language(LanguageNames.ELVISH),
-            new Language(LanguageNames.GIANT),
-            new Language(LanguageNames.GNOMISH),
-            new Language(LanguageNames.GOBLIN),
-            new Language(LanguageNames.HALFLING),
-            new Language(LanguageNames.IGNAN),
-            new Language(LanguageNames.INFERNAL),
-            new Language(LanguageNames.ORC),
-            new Language(LanguageNames.PRIMORDIAL),
-            new Language(LanguageNames.SYLVAN),
-            new Language(LanguageNames.TERRAN),
-            new Language(LanguageNames.THIEVES),
-            new Language(LanguageNames.UNDERCOMMON)
-        ];
-
-        this.skillProficiencies = [
-            new Skill(Skillnames.ACROBATICS, dexterity),
-            new Skill(Skillnames.ANIMALHANDLING, wisdom),
-            new Skill(Skillnames.ARCANA, intelligence),
-            new Skill(Skillnames.ATHLETICS, strength),
-            new Skill(Skillnames.DECEPTION, charisma),
-            new Skill(Skillnames.HISTORY, intelligence),
-            new Skill(Skillnames.INSIGHT, wisdom),
-            new Skill(Skillnames.INTIMIDATION, charisma),
-            new Skill(Skillnames.INVESTIGATION, intelligence),
-            new Skill(Skillnames.MEDICINE, wisdom),
-            new Skill(Skillnames.NATURE, intelligence),
-            new Skill(Skillnames.PERCEPTION, wisdom),
-            new Skill(Skillnames.PERFORMANCE, charisma),
-            new Skill(Skillnames.PERSUASION, charisma),
-            new Skill(Skillnames.RELIGION, intelligence),
-            new Skill(Skillnames.SLEIGHTOFHAND, dexterity),
-            new Skill(Skillnames.STEALTH, dexterity),
-            new Skill(Skillnames.SURVIVAL, wisdom)];
+        // this.toolProficiencies = [
+        //     alchemist,
+        //     bagpipes,
+        //     brewer,
+        //     calligrapher,
+        //     cards,
+        //     carpenter,
+        //     cartographer,
+        //     cobbler,
+        //     cook,
+        //     dice,
+        //     disguise,
+        //     dragonante,
+        //     dragonchess,
+        //     drum,
+        //     dulcimer,
+        //     flute,
+        //     forgery,
+        //     glasblower,
+        //     herbalism,
+        //     horn,
+        //     jewler,
+        //     leatherworker,
+        //     lute,
+        //     lyre,
+        //     mason,
+        //     navigator,
+        //     painter,
+        //     pan,
+        //     poisoner,
+        //     potter,
+        //     shawm,
+        //     smith,
+        //     thieves,
+        //     tinker,
+        //     vehicles,
+        //     viol,
+        //     weaver,
+        //     woodworker
+        // ];
     }
+
+    // this.spellsKnown= mapping synthax!!!
+
+
     // ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
-    getSkill(skillName) {
-        for (const skill of this.skillProficiencies) {
-            if (skill.name === skillName) {
-                return skill
-            }
-        }
-    }
-    resetCharacterSkillProficiencies() {
-        this.skillProficiencies.array.forEach(element => {
+
+
+    resetSkillProficiencies() {
+        this.skillProficiencies.forEach(element => {
             element.proficiency = SkillLevel.UNSKILLED;
         });
+        console.log("Skills reset.")
     }
     // ----------------------------------------------------TOOLS-------------------------------------------------------------------------------
 
@@ -166,6 +156,7 @@ class Character {
         this.toolProficiencies.forEach(element => {
             element.proficiency = false;
         });
+        console.log("Tool proficiencies reset.")
     }
 
 
@@ -231,20 +222,26 @@ let char = new Character();
 
 // ----------------------------------------------------TOOLS-------------------------------------------------------------------------------
 
-// function setToolproficiency(number, ...args) {
-//     switch (number) {
-//         case 0:
-//             args.forEach((arg) => {
-//                 char.toolProficiencies.arg = false
-//             })
-//             break;
-//         case 1:
-//             args.forEach((arg) => {
-//                 char.toolProficiencies.arg = true
-//             })
-//             break;
+function setToolproficiency(number, ...args) {
+    switch (number) {
+        case 0:
+            args.forEach((arg) => {
+                char.toolProficiencies.arg = false
+            })
+            break;
+        case 1:
+            args.forEach((arg) => {
+                char.languageProficiencies.arg = true
+            })
+            break;
 
-//         default:
-//             break;
-//     }
+        default:
+            break;
+    }
+}
+
+// function setLangProf(languageName, prof) {
+//     char.languageProficiencies[languageName] = prof
 // }
+
+// setLangProf("Abyssal", true);

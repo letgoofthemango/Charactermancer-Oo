@@ -236,3 +236,12 @@ Comparision
 
 Version 1 and 2: same form of access
 Version 2 and 3: same structure
+
+
+## TODO
+
+User requirements / User stories
+
+1. As a player, I can select Barbarian / Artificier as a class.
+   I have a large checkbox, where I select ...
+2. As a b

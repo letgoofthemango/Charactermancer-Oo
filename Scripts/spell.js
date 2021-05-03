@@ -11,16 +11,15 @@ const SpellSchool = {
 
 class Spell {
     constructor(name, spellLevel, school, castingTime, range, components, duration, description, classes, atHigherLevels) {
-        this.name = name,
-            this.spellLevel = spellLevel,
-            this.school = school,
-            this.castingTime = castingTime,
-            this.range = range,
-            this.components = components,
-            this.duration = duration,
-            this.description = description,
-            this.classes = classes,
-            this.atHigherLevels = atHigherLevels,
-            this.known = false
+        this.name = name;
+        this.spellLevel = spellLevel;
+        this.school = school;
+        this.castingTime = castingTime;
+        this.range = range;
+        this.components = components;
+        this.duration = duration;
+        this.description = description;
+        this.classes = classes;
+        this.atHigherLevels = atHigherLevels;
     }
 }

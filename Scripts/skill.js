@@ -45,6 +45,27 @@ class Skill {
 
 }
 
+let skills = [
+    new Skill(Skillnames.ACROBATICS, dexterity),
+    new Skill(Skillnames.ANIMALHANDLING, wisdom),
+    new Skill(Skillnames.ARCANA, intelligence),
+    new Skill(Skillnames.ATHLETICS, strength),
+    new Skill(Skillnames.DECEPTION, charisma),
+    new Skill(Skillnames.HISTORY, intelligence),
+    new Skill(Skillnames.INSIGHT, wisdom),
+    new Skill(Skillnames.INTIMIDATION, charisma),
+    new Skill(Skillnames.INVESTIGATION, intelligence),
+    new Skill(Skillnames.MEDICINE, wisdom),
+    new Skill(Skillnames.NATURE, intelligence),
+    new Skill(Skillnames.PERCEPTION, wisdom),
+    new Skill(Skillnames.PERFORMANCE, charisma),
+    new Skill(Skillnames.PERSUASION, charisma),
+    new Skill(Skillnames.RELIGION, intelligence),
+    new Skill(Skillnames.SLEIGHTOFHAND, dexterity),
+    new Skill(Skillnames.STEALTH, dexterity),
+    new Skill(Skillnames.SURVIVAL, wisdom)
+]
+
 // class SkillView {
 //     constructor(skill) {
 //         // TODO

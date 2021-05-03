@@ -40,165 +40,167 @@
 </head>
 
 <body class="parallax">
-    <div class="container" id="characterOverview">
-        <div class="container mt-2">
-            <p class="pm0" id="summary" hidden>Name:</span><span id="summaryName"></span></p>
-            <p class="pm0" id="summary">Class:&nbsp;<span id="summaryClass"></span>&nbsp;<span id="summarySubClass"></span></p>
-            <p class="pm0">Level: <span id="summaryLevel"></span></p>
-            <p class="pm0" id="summary" >Hitpoints: <span id="summaryHP"></span></p>
-            <p class="pm0" id="summary" hidden>Background: <span id="summaryBackground"></span></p>
-            <hr id="hr1" hidden>
-            <p class="pm0" id="summary" hidden>AC: <span id="summaryAC"></span></p>
-            <p class="pm0" id="summary" hidden>Initiative: <span id="summaryInitiative"></span></p>
-            <p class="pm0" id="summarySpeed" hidden>Speed: <span id="summarySpeeds"></span></p>
-            <hr id="hr2">
-            <div>
+    <div class="row">
+        <div class="container col" id="characterOverview">
+            <div class="container mt-2">
+                <p class="pm0" id="summary" hidden>Name:</span><span id="summaryName"></span></p>
+                <p class="pm0" id="summary">Class:&nbsp;<span id="summaryClass"></span>&nbsp;<span
+                        id="summarySubClass"></span></p>
+                <p class="pm0">Level: <span id="summaryLevel"></span></p>
+                <p class="pm0" id="summary">Hitpoints: <span id="summaryHP"></span></p>
+                <p class="pm0" id="summary" hidden>Background: <span id="summaryBackground"></span></p>
+                <hr id="hr1" hidden>
+                <p class="pm0" id="summary" hidden>AC: <span id="summaryAC"></span></p>
+                <p class="pm0" id="summary" hidden>Initiative: <span id="summaryInitiative"></span></p>
+                <p class="pm0" id="summarySpeed" hidden>Speed: <span id="summarySpeeds"></span></p>
+                <hr id="hr2">
                 <div>
-                    <p class="text-center">Ability Scores:<span class="ml-2"><button class="collapseButton"
-                                type="button" data-toggle="collapse" data-target="#collapseStats" aria-expanded="true"
-                                aria-controls="collapseStats">[-]</button></span></p>
-                    <div class="collapse col-12 show" id="collapseStats">
-                        <div class="d-flex justify-content-around">
-                            <div class="statBox">
-                                <p class="statName text-center">STR</p>
-                                <p class="statTotal text-center" id="strVal"></p>
-                                <p class="statMod text-center" id="strMod"></p>
+                    <div>
+                        <p class="text-center">Ability Scores:<span class="ml-2"><button class="collapseButton"
+                                    type="button" data-toggle="collapse" data-target="#collapseStats"
+                                    aria-expanded="true" aria-controls="collapseStats">[-]</button></span></p>
+                        <div class="collapse col-12 show" id="collapseStats">
+                            <div class="d-flex justify-content-around">
+                                <div class="statBox">
+                                    <p class="statName text-center">STR</p>
+                                    <p class="statTotal text-center" id="strVal"></p>
+                                    <p class="statMod text-center" id="strMod"></p>
+                                </div>
+                                <div class="statBox">
+                                    <p class="statName text-center">DEX</p>
+                                    <p class="statTotal text-center" id="dexVal"></p>
+                                    <p class="statMod text-center" id="dexMod"></p>
+                                </div>
+                                <div class="statBox">
+                                    <p class="statName text-center">CON</p>
+                                    <p class="statTotal text-center" id="conVal"></p>
+                                    <p class="statMod text-center" id="conMod"></p>
+                                </div>
+                                <div class="statBox">
+                                    <p class="statName text-center">INT</p>
+                                    <p class="statTotal text-center" id="intVal"></p>
+                                    <p class="statMod text-center" id="intMod"></p>
+                                </div>
+                                <div class="statBox">
+                                    <p class="statName text-center">WIS</p>
+                                    <p class="statTotal text-center" id="wisVal"></p>
+                                    <p class="statMod text-center" id="wisMod"></p>
+                                </div>
+                                <div class="statBox">
+                                    <p class="statName text-center">CHA</p>
+                                    <p class="statTotal text-center" id="chaVal"></p>
+                                    <p class="statMod text-center" id="chaMod"></p>
+                                </div>
                             </div>
-                            <div class="statBox">
-                                <p class="statName text-center">DEX</p>
-                                <p class="statTotal text-center" id="dexVal"></p>
-                                <p class="statMod text-center" id="dexMod"></p>
-                            </div>
-                            <div class="statBox">
-                                <p class="statName text-center">CON</p>
-                                <p class="statTotal text-center" id="conVal"></p>
-                                <p class="statMod text-center" id="conMod"></p>
-                            </div>
-                            <div class="statBox">
-                                <p class="statName text-center">INT</p>
-                                <p class="statTotal text-center" id="intVal"></p>
-                                <p class="statMod text-center" id="intMod"></p>
-                            </div>
-                            <div class="statBox">
-                                <p class="statName text-center">WIS</p>
-                                <p class="statTotal text-center" id="wisVal"></p>
-                                <p class="statMod text-center" id="wisMod"></p>
-                            </div>
-                            <div class="statBox">
-                                <p class="statName text-center">CHA</p>
-                                <p class="statTotal text-center" id="chaVal"></p>
-                                <p class="statMod text-center" id="chaMod"></p>
+                            <div hidden>
+                                <p>Passive perception: <span id="summaryPassivePerception"></span></p>
                             </div>
                         </div>
-                        <div hidden>
-                            <p>Passive perception: <span id="summaryPassivePerception"></span></p>
+                    </div>
+                </div>
+                <hr id="hr3">
+                <div>
+                    <h5 class="text-center mb-0">Skills:<span class="ml-2"><button class="collapseButton" type="button"
+                                data-toggle="collapse" data-target="#skills" aria-expanded="true"
+                                aria-controls="skills">[-]</button></span></h5>
+                    <div class="collapse show" id="skills">
+                        <ul class="listNone">
+                            <li class="text-center"><b><u><span id="summarySkillsText"></span></u></b></li>
+                            <li id="summaryAcrobatics">Acrobatics <span id="skillsID0"></span></li>
+                            <li id="summaryAnimal">Animal handling <span id="skillsID1"></span></li>
+                            <li id="summaryArcana">Arcana <span id="skillsID2"></span></li>
+                            <li id="summaryAthletics">Athletics <span id="skillsID3"></span></li>
+                            <li id="summaryDeception">Deception <span id="skillsID4"></span></li>
+                            <li id="summaryHistory">History <span id="skillsID5"></span></li>
+                            <li id="summaryInsight">Insight <span id="skillsID6"></span></li>
+                            <li id="summaryIntimidation">Intimidation <span id="skillsID7"></span></li>
+                            <li id="summaryInvestigation">Investigation <span id="skillsID8"></span></li>
+                            <li id="summaryMedicine">Medicine <span id="skillsID9"></span></li>
+                            <li id="summaryNature">Nature <span id="skillsID10"></span></li>
+                            <li id="summaryPerception">Perception <span id="skillsID11"></span></li>
+                            <li id="summaryPerformance">Performance <span id="skillsID12"></span></li>
+                            <li id="summaryPersuasion">Persuasion <span id="skillsID13"></span></li>
+                            <li id="summaryReligion">Religion <span id="skillsID14"></span></li>
+                            <li id="summarySleight">Sleight of hand <span id="skillsID15"></span></li>
+                            <li id="summaryStealth">Stealth <span id="skillsID16"></span></li>
+                            <li id="summarySurvival">Survival <span id="skillsID17"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr id="hr4">
+                <div>
+                    <h5 class="text-center">Proficiencies:<span class="ml-2"><button class="collapseButton"
+                                type="button" data-toggle="collapse" data-target="#proficiencies" aria-expanded="true"
+                                aria-controls="proficiencies">[-]</button></span></h5>
+                    <div class="collapse show" id="proficiencies">
+                        <ul id="proficienciesList" class="listNone">
+                            <li id="summary">Weapons: <span id="weaponProficiencies"></span></li>
+                            <li id="summary">Armor: <span id="armorProficiencies"></span></li>
+                            <li id="summaryTools">Tools: <span id="toolProficiencies"></span></li>
+                            <li id="summaryLanguages">Languages: <span id="languageProficiencies"></span></li>
+                        </ul>
+                    </div>
+                    <hr id="hr5">
+                    <div>
+                        <h5 class="text-center">Features:<span class="ml-2"><button class="collapseButton" type="button"
+                                    data-toggle="collapse" data-target="#features" aria-expanded="true"
+                                    aria-controls="features">[-]</button></span></h5>
+                        <div class="collapse show" id="features">
+                            <ul id="featuresList" class="listNone"></ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <hr id="hr3">
-            <div>
-                <h5 class="text-center mb-0">Skills:<span class="ml-2"><button class="collapseButton" type="button"
-                            data-toggle="collapse" data-target="#skills" aria-expanded="true"
-                            aria-controls="skills">[-]</button></span></h5>
-                <div class="collapse show" id="skills">
-                    <ul class="listNone">
-                        <li class="text-center"><b><u><span id="summarySkillsText"></span></u></b></li>
-                        <li id="summaryAcrobatics">Acrobatics <span id="skillsID0"></span></li>
-                        <li id="summaryAnimal">Animal handling <span id="skillsID1"></span></li>
-                        <li id="summaryArcana">Arcana <span id="skillsID2"></span></li>
-                        <li id="summaryAthletics">Athletics <span id="skillsID3"></span></li>
-                        <li id="summaryDeception">Deception <span id="skillsID4"></span></li>
-                        <li id="summaryHistory">History <span id="skillsID5"></span></li>
-                        <li id="summaryInsight">Insight <span id="skillsID6"></span></li>
-                        <li id="summaryIntimidation">Intimidation <span id="skillsID7"></span></li>
-                        <li id="summaryInvestigation">Investigation <span id="skillsID8"></span></li>
-                        <li id="summaryMedicine">Medicine <span id="skillsID9"></span></li>
-                        <li id="summaryNature">Nature <span id="skillsID10"></span></li>
-                        <li id="summaryPerception">Perception <span id="skillsID11"></span></li>
-                        <li id="summaryPerformance">Performance <span id="skillsID12"></span></li>
-                        <li id="summaryPersuasion">Persuasion <span id="skillsID13"></span></li>
-                        <li id="summaryReligion">Religion <span id="skillsID14"></span></li>
-                        <li id="summarySleight">Sleight of hand <span id="skillsID15"></span></li>
-                        <li id="summaryStealth">Stealth <span id="skillsID16"></span></li>
-                        <li id="summarySurvival">Survival <span id="skillsID17"></span></li>
-                    </ul>
-                </div>
-            </div>
-            <hr id="hr4">
-            <div>
-                <h5 class="text-center">Proficiencies:<span class="ml-2"><button class="collapseButton" type="button"
-                            data-toggle="collapse" data-target="#proficiencies" aria-expanded="true"
-                            aria-controls="proficiencies">[-]</button></span></h5>
-                <div class="collapse show" id="proficiencies">
-                    <ul id="proficienciesList" class="listNone">
-                        <li id="summary">Weapons: <span id="weaponProficiencies"></span></li>
-                        <li id="summary">Armor: <span id="armorProficiencies"></span></li>
-                        <li id="summaryTools">Tools: <span id="toolProficiencies"></span></li>
-                        <li id="summaryLanguages">Languages: <span id="languageProficiencies"></span></li>
-                    </ul>
-                </div>
-                <hr id="hr5">
-                <div>
-                    <h5 class="text-center">Features:<span class="ml-2"><button class="collapseButton" type="button"
-                                data-toggle="collapse" data-target="#features" aria-expanded="true"
-                                aria-controls="features">[-]</button></span></h5>
-                    <div class="collapse show" id="features">
-                        <ul id="featuresList" class="listNone"></ul>
+                    <hr id="hr6" hidden>
+                    <div>
+                        <h5 class="text-center" id="summary" hidden>Equipment:<span class="ml-2"><button
+                                    class="collapseButton" type="button" data-toggle="collapse" data-target="#equipment"
+                                    aria-expanded="true" aria-controls="equipment">[-]</button></span></h5>
+                        <div class="collapse show" id="equipment">
+                            <ul id="equipmentList" class="listNone"></ul>
+                        </div>
                     </div>
-                </div>
-                <hr id="hr6" hidden>
-                <div>
-                    <h5 class="text-center" id="summary" hidden>Equipment:<span class="ml-2"><button class="collapseButton" type="button"
-                                data-toggle="collapse" data-target="#equipment" aria-expanded="true"
-                                aria-controls="equipment">[-]</button></span></h5>
-                    <div class="collapse show" id="equipment">
-                        <ul id="equipmentList" class="listNone"></ul>
+                    <hr id="hr7" hidden>
+                    <div>
+                        <h5 class="text-center" id="summary" hidden>Attacks:<span class="ml-2"><button
+                                    class="collapseButton" type="button" data-toggle="collapse" data-target="#attacks"
+                                    aria-expanded="true" aria-controls="attacks">[-]</button></span></h5>
+                        <div class="collapse show" id="attacks">
+                            <ul id="attacksList" class="listNone"></ul>
+                        </div>
                     </div>
-                </div>
-                <hr id="hr7" hidden>
-                <div>
-                    <h5 class="text-center" id="summary" hidden>Attacks:<span class="ml-2"><button class="collapseButton" type="button"
-                                data-toggle="collapse" data-target="#attacks" aria-expanded="true"
-                                aria-controls="attacks">[-]</button></span></h5>
-                    <div class="collapse show" id="attacks">
-                        <ul id="attacksList" class="listNone"></ul>
-                    </div>
-                </div>
-                <hr id="hr8">
-                <div id="spellsDIV">
-                    <h5 class="text-center m-0" id="summarySpellsHeading">Spells:<span class="ml-2"><button class="collapseButton" type="button"
-                                data-toggle="collapse" data-target="#spells" aria-expanded="true"
-                                aria-controls="spells">[-]</button></span></h5>
-                    <div class="collapse show" id="spells">
-                        <label id="cantrips" for="cantrips" hidden>Cantrips:&nbsp;</label>
-                        <ul class="listNone" id="cantripsList"></ul>
-                        <label id="firstLevel" for="firstLevel" hidden>1st:</label>
-                        <ul class="listNone" id="firstLevelList"></ul>
-                        <label for="secondLevel" hidden>2nd:</label>
-                        <ul id="secondLevel" class="listNone"></ul>
-                        <label for="thirdLevel" hidden>3rd:</label>
-                        <ul id="thirdLevel" class="listNone"></ul>
-                        <label for="fourthLevel" hidden>4th:</label>
-                        <ul id="fourthLevel" class="listNone"></ul>
-                        <label for="fifthLevel" hidden>5th:</label>
-                        <ul id="fifthLevel" class="listNone"></ul>
-                        <label for="sixthLevel" hidden>6th:</label>
-                        <ul id="sixthLevel" class="listNone"></ul>
-                        <label for="seventhLevel" hidden>7th:</label>
-                        <ul id="seventhLevel" class="listNone"></ul>
-                        <label for="eigthLevel" hidden>8th:</label>
-                        <ul id="eigthLevel" class="listNone"></ul>
-                        <label for="ninethLevel" hidden>9th:</label>
-                        <ul id="ninethLevel" class="listNone"></ul>
+                    <hr id="hr8">
+                    <div id="spellsDIV">
+                        <h5 class="text-center m-0" id="summarySpellsHeading">Spells:<span class="ml-2"><button
+                                    class="collapseButton" type="button" data-toggle="collapse" data-target="#spells"
+                                    aria-expanded="true" aria-controls="spells">[-]</button></span></h5>
+                        <div class="collapse show" id="spells">
+                            <label id="cantrips" for="cantrips" hidden>Cantrips:&nbsp;</label>
+                            <ul class="listNone" id="cantripsList"></ul>
+                            <label id="firstLevel" for="firstLevel" hidden>1st:</label>
+                            <ul class="listNone" id="firstLevelList"></ul>
+                            <label for="secondLevel" hidden>2nd:</label>
+                            <ul id="secondLevel" class="listNone"></ul>
+                            <label for="thirdLevel" hidden>3rd:</label>
+                            <ul id="thirdLevel" class="listNone"></ul>
+                            <label for="fourthLevel" hidden>4th:</label>
+                            <ul id="fourthLevel" class="listNone"></ul>
+                            <label for="fifthLevel" hidden>5th:</label>
+                            <ul id="fifthLevel" class="listNone"></ul>
+                            <label for="sixthLevel" hidden>6th:</label>
+                            <ul id="sixthLevel" class="listNone"></ul>
+                            <label for="seventhLevel" hidden>7th:</label>
+                            <ul id="seventhLevel" class="listNone"></ul>
+                            <label for="eigthLevel" hidden>8th:</label>
+                            <ul id="eigthLevel" class="listNone"></ul>
+                            <label for="ninethLevel" hidden>9th:</label>
+                            <ul id="ninethLevel" class="listNone"></ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <header>
-            <!-- <nav>
+        <div class="container col-6">
+            <header>
+                <!-- <nav>
                 <ul class="navbar">
                     <a href="#name" id="mh">
                         <li>Name</li>
@@ -220,30 +222,35 @@
                     </a>
                 </ul>
             </nav> -->
-        </header>
-        <div id="displayContent">
-            <h1 class="text-center">5e Charactermancer Oo</h1>
-            <hr id="hr1" hidden>
-            <h1 class="text-center">Introduction</h1 class="text-center">
-            <p></p>
-            <p>foundry import!!! The green checkmark tells the Charactermancer that you have decided that your choice
-                can be added to your character.</p>
-            <p>Not all Variants of all Subclasses/Races have been added to this Charactermancer.</p>
-            <p>The character summary on the right is scrollable and automatically updated.</p>
-            <p>It will give you a summery of the choices you made at the end.</p>
-            <p>Each class dependant skills and features are marked by that class' icon.</p>
-            <p>First class will be considered your starting class. This is relevant when choosing skills and starting
-                equipment.
-            </p>
-            <p>There is more than one version of most things, this app does not intend to have each and every version.
-                reference is given where needed.</p>
-            <p>Right now ony lvl 1 characters but as I get better, lvl 20 and eventually multiclassing is planned for
-                this.</p>
-            <div class="d-flex justify-content-center">
-                <button onclick="App.startApp()" class="btn btn-info" id="initButton">Start</button>
+            </header>
+            <div id="displayContent">
+                <h1 class="text-center">5e Charactermancer Oo</h1>
+                <hr id="hr1" hidden>
+                <h1 class="text-center">Introduction</h1 class="text-center">
+                <p></p>
+                <p>foundry import!!! The green checkmark tells the Charactermancer that you have decided that your
+                    choice
+                    can be added to your character.</p>
+                <p>Not all Variants of all Subclasses/Races have been added to this Charactermancer.</p>
+                <p>The character summary on the right is scrollable and automatically updated.</p>
+                <p>It will give you a summery of the choices you made at the end.</p>
+                <p>Each class dependant skills and features are marked by that class' icon.</p>
+                <p>First class will be considered your starting class. This is relevant when choosing skills and
+                    starting
+                    equipment.
+                </p>
+                <p>There is more than one version of most things, this app does not intend to have each and every
+                    version.
+                    reference is given where needed.</p>
+                <p>Right now ony lvl 1 characters but as I get better, lvl 20 and eventually multiclassing is planned
+                    for
+                    this.</p>
+                <div class="d-flex justify-content-center">
+                    <button onclick="App.startApp()" class="btn btn-info" id="initButton">Start</button>
+                </div>
+
+
             </div>
-
-
         </div>
     </div>
 
