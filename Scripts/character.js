@@ -13,85 +13,13 @@ const CharacterClasses = {
     WIZARD: "Wizard"
 }
 
-class CharacterClass {
-    constructor(character, hitdice, strengthSave, dexteritySave, constitutionSave, intelligenceSave, wisdomSave, charismaSave, lightProf, mediumProf, heavyProf, shieldsProf) {
-        this.character = character;
-        this.characterSubClass;
-        this.saveProficiencies = {
-            strength: strengthSave,
-            dexterity: dexteritySave,
-            constitution: constitutionSave,
-            intelligence: intelligenceSave,
-            wisdom: wisdomSave,
-            charisma: charismaSave,
-        }
-        this.armorClass;
-        this.characterHitpoints;
-        this.hitDice = hitdice;
-        this.characterFightingStyle;
-        this.characterPossibleToolChoices;
-        this.characterMaxToolProficiencies;
-        this.maxLanguageProficiencies;
-        this.characterFeatures;
-        this.characterEquipment;
-        this.characterFeats;
-        this.characterAttacks;
-        this.firstLevelSpellSlots;
-        this.numberOfSkillsToChoose;
-        this.languageProficiencies = languages.map(x => x);
-        this.skillProficiencies = skills.map(x => x);
-        this.toolProficiencies = tools.map(x => x);
-        this.armorProficiencies = {
-            none: true,
-            light: lightProf,
-            medium: mediumProf,
-            heavy: heavyProf,
-            shields: shieldsProf
-        };
-    }
-    getLanguage(languageName) {
-        for (const language of this.languageProficiencies) {
-            if (language.name === languageName) {
-                return language
-            }
-        }
-    }
-
-    getSkill(skillName) {
-        for (const skill of this.skillProficiencies) {
-            if (skill.name === skillName) {
-                return skill
-            }
-        }
-    }
-    getTool(toolName) {
-        for (const tool of this.toolProficiencies) {
-            if (tool.name === toolName) {
-                return tool
-            }
-        }
-    }
-}
-let charClass = new CharacterClass();
-
-class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    constructor(character) {
-        dfklsgöljidgfkljdmgfkl
-        d
-        asfg
-        dfklsgöljidgfkljdmgfkldfs
-
-    }
-
-
-
-}
-
 class Character {
     constructor() {
         this.characterName;
         this.playerName;
         this.characterLevel = 1;
+        this.characterSubClass;
+        this.characterHitpoints;
         this.characterSpeed;
         this.characterVision;
         this.characterRace;
@@ -104,6 +32,13 @@ class Character {
         this.characterHairColor;
         this.characterBackstory;
         this.characterBackground;
+        this.languages = [abyssal, auran, aquan, celestial, common, deepspeech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, halfling, ignan, infernal, orc, primordial, sylvan, terran, thievesCant, undercommon];
+        this.skills = [acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival];
+        this.tools = [alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigator, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver];
+    }
+
+    get hitpoints() {
+        return this.hitDice + constitution.mod;
     }
 
     // getters für diverse sachen von hitpoints etc. im default hier in der Klasse deklarieren und dann in den einzelnen Characterclasses redeklarieren!!!
@@ -116,32 +51,39 @@ class Character {
 
 
     resetSkillProficiencies() {
-        this.skillProficiencies.forEach(element => {
+        this.skills.forEach(element => {
             element.proficiency = SkillLevel.UNSKILLED;
         });
         console.log("Skills reset.")
     }
+
+    getSkill(skillName) {
+        for (const skill of this.skills) {
+            if (skill.name === skillName) {
+                return skill
+            }
+        }
+    }
     // ----------------------------------------------------TOOLS-------------------------------------------------------------------------------
 
-    // getTool(toolName) {
-    //     for (const tool of this.toolProficiencies) {
-    //         if (tool.name === toolName) {
-    //             return tool
-    //         }
-    //     }
-    // }
     resetToolProficiencies() {
-        this.toolProficiencies.forEach(element => {
+        this.tools.forEach(element => {
             element.proficiency = false;
         });
         console.log("Tool proficiencies reset.")
     }
-
+    getTool(toolName) {
+        for (const tool of this.tools) {
+            if (tool.name === toolName) {
+                return tool
+            }
+        }
+    }
 
     // ----------------------------------------------------LANGUAGES-------------------------------------------------------------------------------
 
     getLanguage(languageName) {
-        for (const language of this.languageProficiencies) {
+        for (const language of this.languages) {
             if (language.name === languageName) {
                 return language
             }
@@ -155,23 +97,6 @@ class Character {
         char.armorProficiencies.light = false;
         char.armorProficiencies.none = true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     get initiativeMod() { return dexterity.mod }
@@ -193,7 +118,43 @@ class Character {
 let char = new Character();
 
 
+class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    constructor() {
+        super();
+        this.saveProficiencies = {
+            strength: false,
+            dexterity: false,
+            constitution: false,
+            intelligence: false,
+            wisdom: false,
+            charisma: false,
+        }
+        this.armorClass;
+        this.hitDice = 12;
+        this.characterFightingStyle;
+        this.characterPossibleToolChoices;
+        this.characterMaxToolProficiencies;
+        this.maxLanguageProficiencies;
+        this.characterFeatures;
+        this.characterEquipment;
+        this.characterFeats;
+        this.characterAttacks;
+        this.firstLevelSpellSlots;
+        this.numberOfSkillsToChoose;
+        this.armorProficiencies = {
+            none: true,
+            light: false,
+            medium: false,
+            heavy: false,
+            shields: false
+        }
+    }
 
+    get AC() {
+        return `${10 + constitution.mod + dexterity.mod} or ${10 + constitution.mod + dexterity.mod + 2} with shield.`
+    }
+}
+let barb = new Barbarian();
 
 
 

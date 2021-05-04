@@ -23,13 +23,8 @@ const SkillLevel = {
     HALFPROFICIENT: 1,
     PROFICIENT: 2,
     EXPERTISE: 4
-    
-}
 
-// class SkillProficiency {
-//     skill
-//     proficiency
-// }
+}
 
 class Skill {
     constructor(name, ability) {
@@ -45,26 +40,24 @@ class Skill {
 
 }
 
-let skills = [
-    new Skill(Skillnames.ACROBATICS, dexterity),
-    new Skill(Skillnames.ANIMALHANDLING, wisdom),
-    new Skill(Skillnames.ARCANA, intelligence),
-    new Skill(Skillnames.ATHLETICS, strength),
-    new Skill(Skillnames.DECEPTION, charisma),
-    new Skill(Skillnames.HISTORY, intelligence),
-    new Skill(Skillnames.INSIGHT, wisdom),
-    new Skill(Skillnames.INTIMIDATION, charisma),
-    new Skill(Skillnames.INVESTIGATION, intelligence),
-    new Skill(Skillnames.MEDICINE, wisdom),
-    new Skill(Skillnames.NATURE, intelligence),
-    new Skill(Skillnames.PERCEPTION, wisdom),
-    new Skill(Skillnames.PERFORMANCE, charisma),
-    new Skill(Skillnames.PERSUASION, charisma),
-    new Skill(Skillnames.RELIGION, intelligence),
-    new Skill(Skillnames.SLEIGHTOFHAND, dexterity),
-    new Skill(Skillnames.STEALTH, dexterity),
-    new Skill(Skillnames.SURVIVAL, wisdom)
-]
+let acrobatics = new Skill(Skillnames.ACROBATICS, dexterity);
+let animalHandling = new Skill(Skillnames.ANIMALHANDLING, wisdom);
+let arcana = new Skill(Skillnames.ARCANA, intelligence);
+let athletics = new Skill(Skillnames.ATHLETICS, strength);
+let deception = new Skill(Skillnames.DECEPTION, charisma);
+let history = new Skill(Skillnames.HISTORY, intelligence);
+let insight = new Skill(Skillnames.INSIGHT, wisdom);
+let intimidation = new Skill(Skillnames.INTIMIDATION, charisma);
+let investigation = new Skill(Skillnames.INVESTIGATION, intelligence);
+let medicine = new Skill(Skillnames.MEDICINE, wisdom);
+let nature = new Skill(Skillnames.NATURE, intelligence);
+let perception = new Skill(Skillnames.PERCEPTION, wisdom);
+let performance = new Skill(Skillnames.PERFORMANCE, charisma);
+let persuasion = new Skill(Skillnames.PERSUASION, charisma);
+let religion = new Skill(Skillnames.RELIGION, intelligence);
+let sleightOfHand = new Skill(Skillnames.SLEIGHTOFHAND, dexterity);
+let stealth = new Skill(Skillnames.STEALTH, dexterity);
+let survival = new Skill(Skillnames.SURVIVAL, wisdom);
 
 // class SkillView {
 //     constructor(skill) {

@@ -11,24 +11,24 @@ class Application {
 const App = new Application();
 
 function updateSkills(){
-    acrobaticsValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.ACROBATICS).mod);
-    animalHandlingValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.ANIMALHANDLING).mod);
-    arcanaValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.ARCANA).mod);
-    athleticsValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.ATHLETICS).mod);
-    deceptionValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.DECEPTION).mod);
-    historyValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.HISTORY).mod);
-    insightValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.INSIGHT).mod);
-    intimidationValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.INTIMIDATION).mod);
-    investigationValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.INVESTIGATION).mod);
-    medicineValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.MEDICINE).mod);
-    natureValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.NATURE).mod);
-    perceptionValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.PERCEPTION).mod);
-    performanceValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.PERFORMANCE).mod);
-    persuasionValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.PERSUASION).mod);
-    religionValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.RELIGION).mod);
-    sleightOfHandValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.SLEIGHTOFHAND).mod);
-    stealthValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.STEALTH).mod);
-    survivalValueNode.innerText= App.getNumber(charClass.getSkill(Skillnames.SURVIVAL).mod);
+    acrobaticsValueNode.innerText= App.getNumber(char.getSkill(Skillnames.ACROBATICS).mod);
+    animalHandlingValueNode.innerText= App.getNumber(char.getSkill(Skillnames.ANIMALHANDLING).mod);
+    arcanaValueNode.innerText= App.getNumber(char.getSkill(Skillnames.ARCANA).mod);
+    athleticsValueNode.innerText= App.getNumber(char.getSkill(Skillnames.ATHLETICS).mod);
+    deceptionValueNode.innerText= App.getNumber(char.getSkill(Skillnames.DECEPTION).mod);
+    historyValueNode.innerText= App.getNumber(char.getSkill(Skillnames.HISTORY).mod);
+    insightValueNode.innerText= App.getNumber(char.getSkill(Skillnames.INSIGHT).mod);
+    intimidationValueNode.innerText= App.getNumber(char.getSkill(Skillnames.INTIMIDATION).mod);
+    investigationValueNode.innerText= App.getNumber(char.getSkill(Skillnames.INVESTIGATION).mod);
+    medicineValueNode.innerText= App.getNumber(char.getSkill(Skillnames.MEDICINE).mod);
+    natureValueNode.innerText= App.getNumber(char.getSkill(Skillnames.NATURE).mod);
+    perceptionValueNode.innerText= App.getNumber(char.getSkill(Skillnames.PERCEPTION).mod);
+    performanceValueNode.innerText= App.getNumber(char.getSkill(Skillnames.PERFORMANCE).mod);
+    persuasionValueNode.innerText= App.getNumber(char.getSkill(Skillnames.PERSUASION).mod);
+    religionValueNode.innerText= App.getNumber(char.getSkill(Skillnames.RELIGION).mod);
+    sleightOfHandValueNode.innerText= App.getNumber(char.getSkill(Skillnames.SLEIGHTOFHAND).mod);
+    stealthValueNode.innerText= App.getNumber(char.getSkill(Skillnames.STEALTH).mod);
+    survivalValueNode.innerText= App.getNumber(char.getSkill(Skillnames.SURVIVAL).mod);
 } updateSkills();
 
 function updateStats() {
