@@ -42,9 +42,11 @@ class Character {
         this.characterBackstory;
         this.characterBackground;
         this.languages = [abyssal, auran, aquan, celestial, common, deepspeech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, halfling, ignan, infernal, orc, primordial, sylvan, terran, thievesCant, undercommon];
+        this.numberOfLanguagesToChoose;
         this.skills = [acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival];
         this.numberOfSkillsToChoose;
         this.tools = [alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigator, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver];
+        this.numberOfToolsToChoose;
     }
 
     get initiativeMod() { return dexterity.mod }
@@ -70,13 +72,13 @@ class Character {
             element.proficiency = false;
         });
     }
-    getAbility(abilityName) {
-        for (const ability of this.abilities) {
-            if (ability.name === abilityName) {
-                return ability
-            }
-        }
-    }
+    // getAbility(abilityName) {
+    //     for (const ability of this.abilities) {
+    //         if (ability.name === abilityName) {
+    //             return ability
+    //         }
+    //     }
+    // }
 
 
 
@@ -115,6 +117,9 @@ class Character {
             }
         }
     }
+    set maxTools(number) {
+        this.numberOfToolsToChoose = number;
+    }
 
     // ----------------------------------------------------LANGUAGES-------------------------------------------------------------------------------
 
@@ -124,6 +129,9 @@ class Character {
                 return language
             }
         }
+    }
+    set maxLanguages(number) {
+        this.numberOfLanguagesToChoose = number;
     }
     // ----------------------------------------------------ARMOR-------------------------------------------------------------------------------
     resetArmorProficiencies() {
