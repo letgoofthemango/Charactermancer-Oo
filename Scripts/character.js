@@ -23,6 +23,7 @@ class Character {
         this.characterSpeed;
         this.characterVision;
         this.characterFeatures;
+        this.characterFeats;
         this.abilities = [strength, dexterity, constitution, intelligence, wisdom, charisma]
         this.armorProficiencies = {
             none: true,
@@ -31,6 +32,11 @@ class Character {
             heavy: false,
             shields: false
         }
+        this.characterFightingStyle;
+        this.maxLanguageProficiencies;
+        this.characterAttacks;
+        this.firstLevelSpellSlots;
+        this.characterEquipment;
         this.characterRace;
         this.characterAlignment;
         this.characterAge;
@@ -141,7 +147,33 @@ class Character {
         char.armorProficiencies.light = false;
         char.armorProficiencies.none = true;
     }
-
+    // ----------------------------------------------------WEAPONS-------------------------------------------------------------------------------
+    setWeaponsProficiency(weapon) {
+        weapons.forEach(element => {
+            if (element.name === weapon) {
+                element.proficiency = true;
+            }
+        });
+    }
+    resetWeapons() {
+        weapons.forEach(element => {
+            element.proficiency = false;
+        });
+    }
+    setSimpleWeapons() {
+        weapons.forEach(element => {
+            if (element.simple) {
+                element.proficiency = true;
+            }
+        });
+    }
+    setMartialWeapons() {
+        weapons.forEach(element => {
+            if (element.martial) {
+                element.proficiency = true;
+            }
+        });
+    }
 
 }
 let char = new Character();
@@ -152,19 +184,25 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.armorClass;
         this.hitDice = 12;
-        this.characterFightingStyle;
-        this.characterPossibleToolChoices;
+        this.armorProficiencies = {
+            none: true,
+            light: true,
+            medium: true,
+            heavy: false,
+            shields: true
+        }
         this.characterMaxToolProficiencies;
-        this.maxLanguageProficiencies;
-        this.characterEquipment;
-        this.characterFeats;
-        this.characterAttacks;
-        this.firstLevelSpellSlots;
+        this.characterFeatures = ["Rage", "Unarmored Defense"];
         this.numberOfSkillsToChoose = 2;
     }
 
     get AC() {
         return 10 + constitution.mod + dexterity.mod
     }
+
+    setBarbClass() {
+        strength.proficiency = true;
+        strength.proficiency = true;
+    }
 }
-let barb = new Barbarian();
+let barbarian = new Barbarian();
