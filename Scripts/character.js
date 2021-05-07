@@ -13,6 +13,13 @@ const CharacterClasses = {
     WIZARD: "Wizard"
 }
 
+const ArmorClass = {
+    NONE: 0,
+    LIGHT: 1,
+    MEDIUM: 2,
+    HEAVY: 3
+}
+
 class Character {
     constructor() {
         this.characterName;
@@ -32,11 +39,16 @@ class Character {
             heavy: false,
             shields: false
         }
-        this.characterFightingStyle;
+        this.armorClass;
+        this.armorType = ArmorClass.NONE;
+        this.hasShield = false;
+        // this.characterFightingStyle;
         this.maxLanguageProficiencies;
         this.characterAttacks;
-        this.firstLevelSpellSlots;
         this.characterEquipment;
+        // this.cantripSpells#;
+        // this.firstLevelSpells#;
+        // this.firstLevelSpellSlots;
         this.characterRace;
         this.characterAlignment;
         this.characterAge;
@@ -61,6 +73,28 @@ class Character {
         this.characterHitpoints = this.hitDice + constitution.mod;
         return this.characterHitpoints;
     }
+    get AC() {
+        if (this.armorType === ArmorClass.NONE && this.hasShield == false) {
+            return 10 + dexterity.mod
+        } else if (this.armorType === ArmorClass.NONE && this.hasShield == true) {
+            return 10 + dexterity.mod + 2
+        } else if (this.armorType === ArmorClass.LIGHT && this.hasShield == false) {
+            return this.armorClass + dexterity.mod
+        } else if (this.armorType === ArmorClass.LIGHT && this.hasShield == true) {
+            return this.armorClass + dexterity.mod + 2
+        } else if (this.armorType === ArmorClass.MEDIUM && this.hasShield == false) {
+            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+        } else if (this.armorType === ArmorClass.MEDIUM && this.hasShield == true) {
+            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
+        } else if (this.armorType === ArmorClass.HEAVY && this.hasShield == false) {
+            return this.armorClass
+        } else if (this.armorType === ArmorClass.HEAVY && this.hasShield == true) {
+            return this.armorClass + 2
+        } else {
+            console.log("ERROR WHILE CALCULATING AC!")
+        }
+    }
+
 
     // getters für diverse sachen von hitpoints etc. im default hier in der Klasse deklarieren und dann in den einzelnen Characterclasses redeklarieren!!!
 
@@ -78,35 +112,31 @@ class Character {
             element.proficiency = false;
         });
     }
-    // getAbility(abilityName) {
-    //     for (const ability of this.abilities) {
-    //         if (ability.name === abilityName) {
-    //             return ability
-    //         }
-    //     }
-    // }
+    getAbility(abilityName) {
+        for (const ability of this.abilities) {
+            if (ability.name === abilityName) {
+                return ability
+            }
+        }
+    }
 
 
 
     // ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
-
+    setPossibleSkillTrue(...args) {
+        args.forEach(skill => skill.possibleSkill = true)
+    }
 
     resetSkillProficiencies() {
+    
         this.skills.forEach(element => {
             element.proficiency = SkillLevel.UNSKILLED;
         });
         console.log("Skills reset.")
     }
 
-    getSkill(skillName) {
-        for (const skill of this.skills) {
-            if (skill.name === skillName) {
-                return skill
-            }
-        }
-    }
-    set maxSkills(number) {
-        this.numberOfSkillsToChoose = number;
+    get possibleSkills() {
+        return this.skills.filter(element => element.possibleSkill === true)
     }
     // ----------------------------------------------------TOOLS-------------------------------------------------------------------------------
 
@@ -116,36 +146,21 @@ class Character {
         });
         console.log("Tool proficiencies reset.")
     }
-    getTool(toolName) {
-        for (const tool of this.tools) {
-            if (tool.name === toolName) {
-                return tool
-            }
-        }
-    }
     set maxTools(number) {
         this.numberOfToolsToChoose = number;
     }
 
     // ----------------------------------------------------LANGUAGES-------------------------------------------------------------------------------
-
-    getLanguage(languageName) {
-        for (const language of this.languages) {
-            if (language.name === languageName) {
-                return language
-            }
-        }
-    }
     set maxLanguages(number) {
         this.numberOfLanguagesToChoose = number;
     }
     // ----------------------------------------------------ARMOR-------------------------------------------------------------------------------
     resetArmorProficiencies() {
-        char.armorProficiencies.shields = false;
-        char.armorProficiencies.heavy = false;
-        char.armorProficiencies.medium = false;
-        char.armorProficiencies.light = false;
-        char.armorProficiencies.none = true;
+        this.armorProficiencies.shields = false;
+        this.armorProficiencies.heavy = false;
+        this.armorProficiencies.medium = false;
+        this.armorProficiencies.light = false;
+        this.armorProficiencies.none = true;
     }
     // ----------------------------------------------------WEAPONS-------------------------------------------------------------------------------
     setWeaponsProficiency(weapon) {
@@ -174,35 +189,5 @@ class Character {
             }
         });
     }
-
 }
 let char = new Character();
-
-
-class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    constructor() {
-        super();
-        this.armorClass;
-        this.hitDice = 12;
-        this.armorProficiencies = {
-            none: true,
-            light: true,
-            medium: true,
-            heavy: false,
-            shields: true
-        }
-        this.characterMaxToolProficiencies;
-        this.characterFeatures = ["Rage", "Unarmored Defense"];
-        this.numberOfSkillsToChoose = 2;
-    }
-
-    get AC() {
-        return 10 + constitution.mod + dexterity.mod
-    }
-
-    setBarbClass() {
-        strength.proficiency = true;
-        strength.proficiency = true;
-    }
-}
-let barbarian = new Barbarian();
