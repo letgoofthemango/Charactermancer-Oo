@@ -112,6 +112,9 @@ class Character {
             element.proficiency = false;
         });
     }
+    setSaves(...args) {
+        args.forEach(save => save.proficiency = true)
+    }
     getAbility(abilityName) {
         for (const ability of this.abilities) {
             if (ability.name === abilityName) {
@@ -123,7 +126,7 @@ class Character {
 
 
     // ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
-    setPossibleSkillTrue(...args) {
+    setPossibleSkills(...args) {
         args.forEach(skill => skill.possibleSkill = true)
     }
 

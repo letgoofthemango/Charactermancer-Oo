@@ -24,9 +24,8 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.setSimpleWeapons();
         this.setMartialWeapons();
 
-        strength.proficiency = true;
-        constitution.proficiency = true;
-        this.setPossibleSkillTrue(animalHandling, athletics, intimidation,nature,perception,survival)
+        this.setSaves(strength,constitution)
+        this.setPossibleSkills(animalHandling, athletics, intimidation,nature,perception,survival)
     }
 }
 let barbarian = new Barbarian();
