@@ -9,30 +9,42 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: true
         }
-        this.characterMaxToolProficiencies = 0;
+        this.maxToolProficiencies = 0;
         this.characterFeatures = ["Rage", "Unarmored Defense"];
-        this.numberOfSkillsToChoose = 2;
+        this.maxSkillsProficiencies = 2;
         this.maxLanguageProficiencies = 0;
-
+        this.setBarbarianClass();
     }
 
     get AC() {
-        return 10 + constitution.mod + dexterity.mod
+        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
+            return 10 + constitution.mod + dexterity.mod
+        } else if (this.armorType === ArmorType.NONE && this.hasShield == true) {
+            return 10 + constitution.mod + dexterity.mod + 2
+        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
+            return this.armorClass + dexterity.mod
+        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == true) {
+            return this.armorClass + dexterity.mod + 2
+        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == false) {
+            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == true) {
+            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
+        } else {
+            console.log("ERROR WHILE CALCULATING AC!")
+        }
     }
-
-    setBarbClass() {
-        this.setSimpleWeapons();
-        this.setMartialWeapons();
-
-        this.setSaves(strength,constitution)
-        this.setPossibleSkills(animalHandling, athletics, intimidation,nature,perception,survival)
+    setBarbarianClass() {
+        this.setSimpleWeaponsProficiency();
+        this.setMartialWeaponsProficiency();
+        this.setSaves(strength, constitution);
+        this.setPossibleSkills(animalHandling, athletics, intimidation, nature, perception, survival);
+        this.characterClass= CharacterClasses.BARBARIAN;
+        this.hitpoints;
     }
 }
-let barbarian = new Barbarian();
-barbarian.setBarbClass();
-barbarian.possibleSkills;
 
 
+// let barbarian = new Barbarian();
 
 // const barbarianFeaturesByLevel = [`<h1 class="text-center">Barbarian<span class="ml-2"><button class="collapseButton" type="button"
 // data-toggle="collapse" data-target="#collapseIntro" aria-expanded="true"
