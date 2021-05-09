@@ -1,7 +1,7 @@
 class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.characterClass= CharacterClasses.BARD;
+        this.characterClass = CharacterClasses.BARD;
         this.hitDice = 8;
         this.armorProficiencies = {
             none: true,
@@ -10,18 +10,18 @@ class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: false
         }
-        this.maxToolProficiencies = 3; //only intruments though. How to do that?
-        this.setPossibleTools(bagpipes,drum,dulcimer,flute,horn,lute,lyre,pan,shawm,viol);
-        this.characterFeatures = ["Bardic Inspiration", "Spellcasting"];
-        this.maxSkillsProficiencies = 3;
+        this.setSimpleWeaponsProficiency();
+        this.setWeaponsProficiency("hand crossbow", "longsword", "rapier", "shortsword")
+        this.maxToolProficiencies = 3;
+        this.setPossibleTools(bagpipes, drum, dulcimer, flute, horn, lute, lyre, pan, shawm, viol);
         this.maxLanguageProficiencies = 0;
+        this.setSaves(dexterity, charisma);
+        this.maxSkillsProficiencies = 3;
+        this.setPossibleSkills(acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival);
         this.cantripSpells = 2;
         this.firstLevelSpells = 4;
         this.firstLevelSpellSlots = 2;
-        this.setSimpleWeaponsProficiency();
-        this.setWeaponsProficiency("hand crossbow", "longsword", "rapier", "shortsword")
-        this.setSaves(dexterity, charisma);
-        this.setPossibleSkills(acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival);
+        this.characterFeatures = ["Bardic Inspiration", "Spellcasting"];
     }
 
     get AC() {
@@ -37,6 +37,6 @@ class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         return 8 + 2 + charisma.mod
     }
     get spellAttackMod() {
-        return 2 + charisma.mod
+        return getNumber(2 + charisma.mod)
     }
 }

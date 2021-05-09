@@ -10,14 +10,14 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: true
         }
-        this.maxToolProficiencies = 0;
-        this.characterFeatures = ["Rage", "Unarmored Defense"];
-        this.maxSkillsProficiencies = 2;
-        this.maxLanguageProficiencies = 0;
         this.setSimpleWeaponsProficiency();
         this.setMartialWeaponsProficiency();
+        this.maxToolProficiencies = 0;
+        this.maxLanguageProficiencies = 0;
         this.setSaves(strength, constitution);
+        this.maxSkillsProficiencies = 2;
         this.setPossibleSkills(animalHandling, athletics, intimidation, nature, perception, survival);
+        this.characterFeatures = ["Rage", "Unarmored Defense"];
     }
 
     get AC() {

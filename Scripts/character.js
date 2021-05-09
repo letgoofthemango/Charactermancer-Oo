@@ -59,13 +59,10 @@ class Character {
         this.maxSkillsProficiencies;
         this.tools = [alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigator, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver];
         this.numberOfToolsToChoose;
+        this.inventory;
     }
 
-    get initiativeMod() { return dexterity.mod }
-    get passivePerception() { return 10 + wisdom.mod }
-    get hitpoints() {
-        return this.hitDice + constitution.mod;
-    }
+
     get AC() {
         if (this.armorType === ArmorType.NONE && this.hasShield == false) {
             return 10 + dexterity.mod
@@ -89,12 +86,12 @@ class Character {
     }
 
 
-    // getters für diverse sachen von hitpoints etc. im default hier in der Klasse deklarieren und dann in den einzelnen Characterclasses redeklarieren!!!
-
-
-    // this.spellsKnown= mapping synthax!!!
-
     // ----------------------------------------------------Abilities-------------------------------------------------------------------------------
+    get initiativeMod() { return dexterity.mod }
+    get passivePerception() { return 10 + wisdom.mod }
+    get hitpoints() {
+        return this.hitDice + constitution.mod;
+    }
     resetAbilityScores() {
         this.abilities.forEach(element => {
             element.value = 8;

@@ -1,0 +1,23 @@
+row für dreiteilung der Seite links outline.
+
+Go back Button!
+
+--Continue with classes!
+
+
+bestätigung abfragen?
+
+check english capitalization
+
+table rows ignore striped coloring
+Table first row should not be a row.
+
+
+popover für skills etc machen!
+
+
+
+-sanitize inputs!!!!!!
+
+
+add a "character features beyond first level" demarcation after 1st level features. Make it collapsed standard.

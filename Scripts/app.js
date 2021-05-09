@@ -1,34 +1,28 @@
 class Application {
-    getNumber(mod) {
-        if (mod >= 0) {
-            return "+" + mod;
-        } else {
-            return mod.toString();
-        }
-    }
+    
 }
 
 const App = new Application();
 
 function updateSkills(){
-    acrobaticsValueNode.innerText= App.getNumber(acrobatics.mod);
-    animalHandlingValueNode.innerText= App.getNumber(animalHandling.mod);
-    arcanaValueNode.innerText= App.getNumber(arcana.mod);
-    athleticsValueNode.innerText= App.getNumber(athletics.mod);
-    deceptionValueNode.innerText= App.getNumber(deception.mod);
-    historyValueNode.innerText= App.getNumber(history.mod);
-    insightValueNode.innerText= App.getNumber(insight.mod);
-    intimidationValueNode.innerText= App.getNumber(intimidation.mod);
-    investigationValueNode.innerText= App.getNumber(investigation.mod);
-    medicineValueNode.innerText= App.getNumber(medicine.mod);
-    natureValueNode.innerText= App.getNumber(nature.mod);
-    perceptionValueNode.innerText= App.getNumber(perception.mod);
-    performanceValueNode.innerText= App.getNumber(performance.mod);
-    persuasionValueNode.innerText= App.getNumber(persuasion.mod);
-    religionValueNode.innerText= App.getNumber(religion.mod);
-    sleightOfHandValueNode.innerText= App.getNumber(sleightOfHand.mod);
-    stealthValueNode.innerText= App.getNumber(stealth.mod);
-    survivalValueNode.innerText= App.getNumber(survival.mod);
+    acrobaticsValueNode.innerText= getNumber(acrobatics.mod);
+    animalHandlingValueNode.innerText= getNumber(animalHandling.mod);
+    arcanaValueNode.innerText= getNumber(arcana.mod);
+    athleticsValueNode.innerText= getNumber(athletics.mod);
+    deceptionValueNode.innerText= getNumber(deception.mod);
+    historyValueNode.innerText= getNumber(history.mod);
+    insightValueNode.innerText= getNumber(insight.mod);
+    intimidationValueNode.innerText= getNumber(intimidation.mod);
+    investigationValueNode.innerText= getNumber(investigation.mod);
+    medicineValueNode.innerText= getNumber(medicine.mod);
+    natureValueNode.innerText= getNumber(nature.mod);
+    perceptionValueNode.innerText= getNumber(perception.mod);
+    performanceValueNode.innerText= getNumber(performance.mod);
+    persuasionValueNode.innerText= getNumber(persuasion.mod);
+    religionValueNode.innerText= getNumber(religion.mod);
+    sleightOfHandValueNode.innerText= getNumber(sleightOfHand.mod);
+    stealthValueNode.innerText= getNumber(stealth.mod);
+    survivalValueNode.innerText= getNumber(survival.mod);
 } updateSkills();
 
 function updateStats() {
@@ -64,3 +58,10 @@ document.getElementById("characterOverview").addEventListener("click", function 
     console.log("Character update");
 });
 
+function getNumber(mod) {
+    if (mod >= 0) {
+        return "+" + mod;
+    } else {
+        return mod.toString();
+    }
+}
