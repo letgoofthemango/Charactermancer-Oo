@@ -4,7 +4,6 @@ class Tool extends InventoryItem {
         this.proficiency = false;
         this.possibleTool=false;
     }
-    // other functions or getters?
     
 }
 let alchemist= new Tool(ToolName.ALCHEMIST, ItemType.ARTISAN, 0, 0, 50, 8, "Alchemist's supplies enable a character to produce useful concoctions, such as acid or alchemist's fire. Components: Alchemist's supplies include two glass beakers, a metal frame to hold a beaker in place over an open flame, a glass stirring rod, a small mortar and pestle, and a pouch of common alchemical ingredients, including salt, powdered iron, and purified water.");

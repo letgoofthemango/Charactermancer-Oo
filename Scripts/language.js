@@ -38,7 +38,6 @@ class LanguageView {
     }
 }
 
-// ignore rest
 let abyssal = new Language(LanguageNames.ABYSSAL, "Typical speakers: Demons; Script: Infernal");
 let auran = new Language(LanguageNames.AURAN, "Typical speakers: demons; Script: Infernal");
 let aquan = new Language(LanguageNames.AQUAN, "Typical speakers: demons; Script: Infernal");
@@ -61,39 +60,4 @@ let sylvan = new Language(LanguageNames.SYLVAN, "Typical speakers: Fey creatures
 let terran = new Language(LanguageNames.TERRAN, "Typical speakers: Elementals; Script: Dwarvish");
 let thievesCant = new Language(LanguageNames.THIEVES, "Typical speakers: Assassins, Rogues; Script: -");
 let undercommon = new Language(LanguageNames.UNDERCOMMON, "Typical speakers: Underdark traders; Script: Elvish");
-
-
-
-
-// function resetLanguageProficiencies() {
-//     abyssal.proficiency = false;
-//     auran.proficiency = false;
-//     aquan.proficiency = false;
-//     celestial.proficiency = false;
-//     deepspeech.proficiency = false;
-//     draconic.proficiency = false;
-//     druidic.proficiency = false;
-//     dwarvish.proficiency = false;
-//     elvish.proficiency = false;
-//     giant.proficiency = false;
-//     gnomish.proficiency = false;
-//     goblin.proficiency = false;
-//     halfling.proficiency = false;
-//     ignan.proficiency = false;
-//     infernal.proficiency = false;
-//     orc.proficiency = false;
-//     primordial.proficiency = false;
-//     sylvan.proficiency = false;
-//     terran.proficiency = false;
-//     thieves.proficiency = false;
-//     undercommon.proficiency = false;
-// }
-
-// function getLanguage(languageName) {
-//     for (const language of languages) {
-//         if (language.name === languageName) {
-//             return language
-//         }
-//     }
-// }
 

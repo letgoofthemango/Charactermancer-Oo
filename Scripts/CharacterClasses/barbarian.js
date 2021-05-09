@@ -1,6 +1,7 @@
 class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
+        this.characterClass= CharacterClasses.BARBARIAN;
         this.hitDice = 12;
         this.armorProficiencies = {
             none: true,
@@ -13,7 +14,10 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.characterFeatures = ["Rage", "Unarmored Defense"];
         this.maxSkillsProficiencies = 2;
         this.maxLanguageProficiencies = 0;
-        this.setBarbarianClass();
+        this.setSimpleWeaponsProficiency();
+        this.setMartialWeaponsProficiency();
+        this.setSaves(strength, constitution);
+        this.setPossibleSkills(animalHandling, athletics, intimidation, nature, perception, survival);
     }
 
     get AC() {
@@ -30,16 +34,8 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == true) {
             return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
         } else {
-            console.log("ERROR WHILE CALCULATING AC!")
+            throw new Error("ERROR WHILE CALCULATING AC!");
         }
-    }
-    setBarbarianClass() {
-        this.setSimpleWeaponsProficiency();
-        this.setMartialWeaponsProficiency();
-        this.setSaves(strength, constitution);
-        this.setPossibleSkills(animalHandling, athletics, intimidation, nature, perception, survival);
-        this.characterClass= CharacterClasses.BARBARIAN;
-        this.hitpoints;
     }
 }
 

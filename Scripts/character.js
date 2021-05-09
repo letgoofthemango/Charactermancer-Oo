@@ -20,7 +20,6 @@ class Character {
         this.characterLevel = 1;
         this.characterClass;
         this.characterSubClass;
-        this.characterHitpoints;
         this.characterSpeed;
         this.characterVision;
         this.characterFeatures;
@@ -65,9 +64,7 @@ class Character {
     get initiativeMod() { return dexterity.mod }
     get passivePerception() { return 10 + wisdom.mod }
     get hitpoints() {
-        this.characterHitpoints = this.hitDice + constitution.mod;
-        // console.log(this.characterHitpoints);
-        return this.characterHitpoints;
+        return this.hitDice + constitution.mod;
     }
     get AC() {
         if (this.armorType === ArmorType.NONE && this.hasShield == false) {
@@ -119,17 +116,19 @@ class Character {
         }
     }
     // ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
-    setSkillProficiency(skill) {
-        skill.proficiency=SkillLevel.PROFICIENT;
+    setSkillProficiencies(...args) {
+        args.forEach(skill => skill.proficiency = 2)
+    }
+    resetSkillProficiencies() {
+        this.skills.forEach(skill => skill.proficiency = SkillLevel.UNSKILLED)
+        console.log("Skills reset.")
     }
     setPossibleSkills(...args) {
         args.forEach(skill => skill.possibleSkill = true)
     }
-    resetSkillProficiencies() {
-        this.skills.forEach(element => {
-            element.proficiency = SkillLevel.UNSKILLED;
-        });
-        console.log("Skills reset.")
+    resetPossibleSkills() {
+        this.skills.forEach(skill => skill.possibleSkill = false);
+        console.log("Possible skills reset.")
     }
     get possibleSkills() {
         return this.skills.filter(element => element.possibleSkill === true)
@@ -137,13 +136,17 @@ class Character {
     // ----------------------------------------------------TOOLS-------------------------------------------------------------------------------
 
     resetToolProficiencies() {
-        this.tools.forEach(element => {
-            element.proficiency = false;
-        });
+        this.tools.forEach(tool => tool.proficiency = false);
         console.log("Tool proficiencies reset.")
+    }
+    get possibleTools() {
+        return this.tools.filter(element => element.possibleTool === true)
     }
     set maxTools(number) {
         this.numberOfToolsToChoose = number;
+    }
+    setPossibleTools(...args) {
+        args.forEach(tool => tool.possibleTool = true)
     }
 
     // ----------------------------------------------------LANGUAGES-------------------------------------------------------------------------------
@@ -154,6 +157,7 @@ class Character {
         this.languages(element => {
             element.proficiency = false;
         });
+        common.proficiency = true;
     }
     // ----------------------------------------------------ARMOR-------------------------------------------------------------------------------
     resetArmorProficiencies() {
@@ -168,20 +172,11 @@ class Character {
         //NEEDS CODE!!!!!!!
     }
     // ----------------------------------------------------WEAPONS-------------------------------------------------------------------------------
-    getWeapon(weaponName) {
-        for (const weapon of weapons) {
-            if (weapon.name === weaponName) {
-                return weapon
-            }
-        }
-    }
     setWeaponsProficiency(...args) {
-        args.forEach(weaponName => this.getWeapon(weaponName).proficiency = true);
+        args.forEach(weaponName => getWeapon(weaponName).proficiency = true);
     }
     resetWeaponsProficiencies() {
-        weapons.forEach(element => {
-            element.proficiency = false;
-        });
+        weapons.forEach(weapon => weapon.proficiency = false);
     }
     setSimpleWeaponsProficiency() {
         weapons.forEach(element => {
@@ -196,6 +191,13 @@ class Character {
                 element.proficiency = true;
             }
         });
+    }
+    // ----------------------------------------------------SPELLS-------------------------------------------------------------------------------
+    getCantrips() {
+        return spells.filter(spell => spell.level === 0 && spell.classes.includes(this.characterClass))
+    }
+    getfirstLevelSpells() {
+        return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.characterClass))
     }
 }
 let char = new Character();
