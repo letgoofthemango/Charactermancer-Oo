@@ -21,3 +21,20 @@ popover für skills etc machen!
 
 
 add a "character features beyond first level" demarcation after 1st level features. Make it collapsed standard.
+
+
+class Me extends Person {
+    constructor() {
+        super()
+        this.hairColor= "brown";
+        this.eyeColor= "grey";
+        this.hobbies = {
+            programming: true,
+            chess: false,
+            cardio: true,
+            resistanceTraining: true,
+            reading: true
+        }
+    }
+}
+let me = new Me();

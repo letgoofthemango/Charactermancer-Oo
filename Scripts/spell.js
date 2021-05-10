@@ -21,7 +21,8 @@ class Spell {
         this.classes = classes;
         this.description = description;
         this.atHigherLevels = atHigherLevels;
-        this.known=false
+        this.known = false;
+        this.prepared = false;
     }
 }
 
@@ -5684,7 +5685,7 @@ let spells = [
         atHigherLevels: null
     },
 ]
-spells = spells.map(spell => new Spell(spell.name,spell.level,spell.school,spell.castingTime,spell.range,spell.components,spell.duration,spell.description,spell.classes,spell.atHigherLevels ));
+spells = spells.map(spell => new Spell(spell.name, spell.level, spell.school, spell.castingTime, spell.range, spell.components, spell.duration, spell.description, spell.classes, spell.atHigherLevels));
 
 function getSpell(spellName) {
     for (const spell of spells) {
@@ -5692,4 +5693,10 @@ function getSpell(spellName) {
             return spell
         }
     }
+}
+function setSpellsKnown(...args) {
+    args.forEach(spell => getSpell(spell).known = true)
+}
+function setSpellsPrepared(...args) {
+    args.forEach(spell => getSpell(spell).prepared = true)
 }

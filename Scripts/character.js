@@ -39,6 +39,8 @@ class Character {
         this.maxToolProficiencies;
         this.maxLanguageProficiencies;
         this.characterAttacks;
+        this.characterMeleeAttackBonus;
+        this.characterRangedAttackBonus= dexterity.mod;
         this.characterEquipment;
         this.cantripSpells;
         this.firstLevelSpells;
@@ -198,3 +200,7 @@ class Character {
     }
 }
 let char = new Character();
+
+function fullCharacterReset(){
+ //NEEDS CODE, HOW TO DEAL WITH GLOBAL AND LOCAL FUNCTIONS???
+}
