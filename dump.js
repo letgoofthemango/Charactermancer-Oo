@@ -6,3 +6,13 @@ function getSkill(skillName) {
         }
     }
 }
+
+
+get armorProficiencies() {
+    let temp = {}
+    // if race is dwarf
+    temp.light = true
+    temp.medium = true
+    temp.heavy = this._armorProficiencies.heavy
+    return temp
+}

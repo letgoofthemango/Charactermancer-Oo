@@ -1,7 +1,7 @@
 class Wizard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.characterClass = CharacterClasses.Wizard;
+        this.class = CharacterClasses.Wizard;
         this.hitDice = 6;
         this.armorProficiencies = {
             none: true,
@@ -19,7 +19,7 @@ class Wizard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.cantripSpells = 3;
         this.firstLevelSpells = 6;
         this.firstLevelSpellSlots = 2;
-        this.characterFeatures = ["Arcane Recovery", "Spellcasting"];
+        this.features = ["Arcane Recovery", "Spellcasting"];
     }
 
     get AC() { return 10 + dexterity.mod }

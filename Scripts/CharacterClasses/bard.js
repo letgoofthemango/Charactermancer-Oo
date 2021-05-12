@@ -1,7 +1,7 @@
 class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.characterClass = CharacterClasses.BARD;
+        this.class = CharacterClasses.BARD;
         this.hitDice = 8;
         this.armorProficiencies = {
             none: true,
@@ -21,17 +21,22 @@ class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.cantripSpells = 2;
         this.firstLevelSpells = 4;
         this.firstLevelSpellSlots = 2;
-        this.characterFeatures = ["Bardic Inspiration", "Spellcasting"];
+        this.features = ["Bardic Inspiration", "Spellcasting"];
     }
 
     get AC() {
-        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
-            return 10 + dexterity.mod
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
-            return this.armorClass + dexterity.mod
-        } else {
-            throw new Error("ERROR WHILE CALCULATING AC!");
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            default:
+                break;
         }
+        return ac;
     }
     get spellSave() {
         return 8 + 2 + charisma.mod

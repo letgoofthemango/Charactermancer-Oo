@@ -1,7 +1,7 @@
 class Rogue extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.characterClass = CharacterClasses.ROGUE;
+        this.class = CharacterClasses.ROGUE;
         this.hitDice = 8;
         this.armorProficiencies = {
             none: true,
@@ -19,16 +19,21 @@ class Rogue extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.setSaves(dexterity, intelligence);
         this.maxSkillsProficiencies = 4;
         this.setPossibleSkills(acrobatics, athletics, deception, insight, intimidation, investigation, perception, performance, persuasion, sleightOfHand, stealth);
-        this.characterFeatures = ["Expertise", "Sneak Attack", "Thieves' Cant"];
+        this.features = ["Expertise", "Sneak Attack", "Thieves' Cant"];
     }
 
     get AC() {
-        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
-            return 10 + dexterity.mod
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
-            return this.armorClass + dexterity.mod
-        } else {
-            throw new Error("ERROR WHILE CALCULATING AC!");
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            default:
+                throw new Error("ERROR WHILE CALCULATING AC!");
         }
+        return ac;
     }
 }

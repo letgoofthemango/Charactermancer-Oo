@@ -1,7 +1,7 @@
 class Monk extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.characterClass = CharacterClasses.MONK;
+        this.class = CharacterClasses.MONK;
         this.hitDice = 8;
         this.armorProficiencies = {
             none: true,
@@ -18,7 +18,7 @@ class Monk extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.setSaves(dexterity, strength);
         this.maxSkillsProficiencies = 2;
         this.setPossibleSkills(acrobatics, athletics, history, insight, religion, stealth);
-        this.characterFeatures = ["Unarmored Defense", "Martial Arts"];
+        this.features = ["Unarmored Defense", "Martial Arts"];
     }
 
     get AC() { return 10 + wisdom.mod + dexterity.mod }

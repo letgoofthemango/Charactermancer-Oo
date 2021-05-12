@@ -15,15 +15,15 @@ const CharacterClasses = {
 
 class Character {
     constructor() {
-        this.characterName;
+        this.name;
         this.playerName;
-        this.characterLevel = 1;
-        this.characterClass;
-        this.characterSubClass;
-        this.characterSpeed;
-        this.characterVision;
-        this.characterFeatures;
-        this.characterFeats;
+        this.level = 1;
+        this.class;
+        this.subClass;
+        this.speed;
+        this.vision;
+        this.features;
+        this.geats;
         this.abilities = [strength, dexterity, constitution, intelligence, wisdom, charisma]
         this.armorProficiencies = {
             none: true,
@@ -35,26 +35,25 @@ class Character {
         this.armorClass;
         this.armorType = ArmorType.NONE;
         this.hasShield = false;
-        this.characterFightingStyle;
         this.maxToolProficiencies;
         this.maxLanguageProficiencies;
-        this.characterAttacks;
-        this.characterMeleeAttackBonus;
-        this.characterRangedAttackBonus= dexterity.mod;
-        this.characterEquipment;
+        this.attacks;
+        this.meleeBonus;
+        this.rangedBonus = dexterity.mod;
+        this.equipment;
         this.cantripSpells;
         this.firstLevelSpells;
         this.firstLevelSpellSlots;
-        this.characterRace;
-        this.characterAlignment;
-        this.characterAge;
-        this.characterHeight;
-        this.characterWeight;
-        this.characterEyesColor;
-        this.characterSkinColor;
-        this.characterHairColor;
-        this.characterBackstory;
-        this.characterBackground;
+        this.race;
+        this.alignment;
+        this.age;
+        this.height;
+        this.weight;
+        this.eyesColor;
+        this.skinColor;
+        this.hairColor;
+        this.backstory;
+        this.background;
         this.languages = [abyssal, auran, aquan, celestial, common, deepspeech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, halfling, ignan, infernal, orc, primordial, sylvan, terran, thievesCant, undercommon];
         this.numberOfLanguagesToChoose;
         this.skills = [acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival];
@@ -66,26 +65,30 @@ class Character {
 
 
     get AC() {
-        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
-            return 10 + dexterity.mod
-        } else if (this.armorType === ArmorType.NONE && this.hasShield == true) {
-            return 10 + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
-            return this.armorClass + dexterity.mod
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == true) {
-            return this.armorClass + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == false) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == true) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
-        } else if (this.armorType === ArmorType.HEAVY && this.hasShield == false) {
-            return this.armorClass
-        } else if (this.armorType === ArmorType.HEAVY && this.hasShield == true) {
-            return this.armorClass + 2
-        } else {
-            console.log("ERROR WHILE CALCULATING AC!")
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            case ArmorType.HEAVY:
+                ac = this.armorClass
+                break;
+            default:
+                throw new Error("ERROR WHILE CALCULATING AC!");
         }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
     }
+    get rangedAttackBonus() { return dexterity.mod }
+    get meleeAttackBonus(){} //????????????????????????????????????????????????????????????????????????????????????????????????????
 
 
     // ----------------------------------------------------Abilities-------------------------------------------------------------------------------
@@ -193,14 +196,14 @@ class Character {
     }
     // ----------------------------------------------------SPELLS-------------------------------------------------------------------------------
     getCantrips() {
-        return spells.filter(spell => spell.level === 0 && spell.classes.includes(this.characterClass))
+        return spells.filter(spell => spell.level === 0 && spell.classes.includes(this.class))
     }
     getfirstLevelSpells() {
-        return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.characterClass))
+        return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.class))
     }
 }
 let char = new Character();
 
-function fullCharacterReset(){
- //NEEDS CODE, HOW TO DEAL WITH GLOBAL AND LOCAL FUNCTIONS???
+function fullCharacterReset() {
+    //NEEDS CODE, HOW TO DEAL WITH GLOBAL AND LOCAL FUNCTIONS???
 }

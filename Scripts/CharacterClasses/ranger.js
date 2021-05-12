@@ -1,7 +1,7 @@
 class Ranger extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.characterClass = CharacterClasses.Ranger;
+        this.class = CharacterClasses.Ranger;
         this.hitDice = 10;
         this.armorProficiencies = {
             none: true,
@@ -17,25 +17,28 @@ class Ranger extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.setSaves(strength, dexterity);
         this.maxSkillsProficiencies = 3;
         this.setPossibleSkills(animalHandling, athletics, insight, investigation, nature, perception, stealth, survival);
-        this.characterFeatures = ["Favored Enemy", "Natural Explorer"];
-        this.favoredEnemy=null;
+        this.features = ["Favored Enemy", "Natural Explorer"];
+        this.favoredEnemy = null;
     }
 
     get AC() {
-        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
-            return 10 + constitution.mod + dexterity.mod
-        } else if (this.armorType === ArmorType.NONE && this.hasShield == true) {
-            return 10 + constitution.mod + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
-            return this.armorClass + dexterity.mod
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == true) {
-            return this.armorClass + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == false) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == true) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
-        } else {
-            throw new Error("ERROR WHILE CALCULATING AC!");
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            default:
+                throw new Error("ERROR WHILE CALCULATING AC!");
         }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
     }
 }

@@ -1,7 +1,7 @@
 class Cleric extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.characterClass = CharacterClasses.CLERIC;
+        this.class = CharacterClasses.CLERIC;
         this.hitDice = 8;
         this.armorProficiencies = {
             none: true,
@@ -24,21 +24,24 @@ class Cleric extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     get AC() {
-        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
-            return 10 + dexterity.mod
-        } else if (this.armorType === ArmorType.NONE && this.hasShield == true) {
-            return 10 + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
-            return this.armorClass + dexterity.mod
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == true) {
-            return this.armorClass + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == false) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == true) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
-        } else {
-            console.log("ERROR WHILE CALCULATING AC!")
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            default:
+                break;
         }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
     }
 
     get spellSave() {
@@ -52,7 +55,7 @@ class Cleric extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 class KnowledgeCleric extends Cleric {
     constructor() {
         super()
-        this.characterSubClass = "(Knowledge domain)";
+        this.subClass = "(Knowledge domain)";
         setSpellsKnown("Identify");
         setSpellsPrepared("Command", "Identify");
         this.characterFeatures = ["Divine Domain: Knowledge", "Blessing of Knowledge", "Spellcasting"];
@@ -63,7 +66,7 @@ class KnowledgeCleric extends Cleric {
 class LifeCleric extends Cleric {
     constructor() {
         super()
-        this.characterSubClass = "(Life domain)";
+        this.subClass = "(Life domain)";
         this.armorProficiencies = {
             none: true,
             light: true,
@@ -75,25 +78,27 @@ class LifeCleric extends Cleric {
         this.characterFeatures = ["Divine Domain: Life", "Disciple of Life", "Spellcasting"];
     }
     get AC() {
-        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
-            return 10 + dexterity.mod
-        } else if (this.armorType === ArmorType.NONE && this.hasShield == true) {
-            return 10 + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
-            return this.armorClass + dexterity.mod
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == true) {
-            return this.armorClass + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == false) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == true) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
-        } else if (this.armorType === ArmorType.HEAVY && this.hasShield == false) {
-            return this.armorClass
-        } else if (this.armorType === ArmorType.HEAVY && this.hasShield == true) {
-            return this.armorClass + 2
-        } else {
-            console.log("ERROR WHILE CALCULATING AC!")
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            case ArmorType.HEAVY:
+                ac = this.armorClass
+                break;
+            default:
+                break;
         }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
     }
 }
 
@@ -101,7 +106,7 @@ class LifeCleric extends Cleric {
 class LightCleric extends Cleric {
     constructor() {
         super()
-        this.characterSubClass = "(Light domain)";
+        this.subClass = "(Light domain)";
         setSpellsKnown("Burning Hands", "Faerie Fire", "Light");
         setSpellsPrepared("Burning Hands", "Faerie Fire");
         this.characterFeatures = ["Divine Domain: Knowledge", "Warding Flare", "Spellcasting"];
@@ -111,7 +116,7 @@ class LightCleric extends Cleric {
 class NatureCleric extends Cleric {
     constructor() {
         super()
-        this.characterSubClass = "(Nature domain)";
+        this.subClass = "(Nature domain)";
         this.armorProficiencies = {
             none: true,
             light: true,
@@ -124,25 +129,27 @@ class NatureCleric extends Cleric {
         this.characterFeatures = ["Divine Domain: Knowledge", "Acolyte of Nature", "Spellcasting"];
     }
     get AC() {
-        if (this.armorType === ArmorType.NONE && this.hasShield == false) {
-            return 10 + dexterity.mod
-        } else if (this.armorType === ArmorType.NONE && this.hasShield == true) {
-            return 10 + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == false) {
-            return this.armorClass + dexterity.mod
-        } else if (this.armorType === ArmorType.LIGHT && this.hasShield == true) {
-            return this.armorClass + dexterity.mod + 2
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == false) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-        } else if (this.armorType === ArmorType.MEDIUM && this.hasShield == true) {
-            return this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2) + 2
-        } else if (this.armorType === ArmorType.HEAVY && this.hasShield == false) {
-            return this.armorClass
-        } else if (this.armorType === ArmorType.HEAVY && this.hasShield == true) {
-            return this.armorClass + 2
-        } else {
-            console.log("ERROR WHILE CALCULATING AC!")
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            case ArmorType.HEAVY:
+                ac = this.armorClass
+                break;
+            default:
+                break;
         }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
     }
 }
 
@@ -150,7 +157,7 @@ class NatureCleric extends Cleric {
 class TempestCleric extends Cleric {
     constructor() {
         super()
-        this.characterSubClass = "(Tempest domain)";
+        this.subClass = "(Tempest domain)";
         this.armorProficiencies = {
             none: true,
             light: true,
@@ -163,13 +170,36 @@ class TempestCleric extends Cleric {
         setSpellsPrepared("Fog Cloud", "Thunderwave");
         this.characterFeatures = ["Divine Domain: Tempest", "Wrath of the Storm", "Spellcasting"];
     }
+    get AC() {
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            case ArmorType.HEAVY:
+                ac = this.armorClass
+                break;
+            default:
+                break;
+        }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
+    }
 }
 
 
 class TrickeryCleric extends Cleric {
     constructor() {
         super()
-        this.characterSubClass = "(Trickery domain)";
+        this.subClass = "(Trickery domain)";
         setSpellsKnown("Charm Person", "Disguise Self");
         setSpellsPrepared("Charm Person", "Disguise Self");
         this.characterFeatures = ["Divine Domain: Trickery", "Blessing of the Trickster", "Spellcasting"];
@@ -179,7 +209,7 @@ class TrickeryCleric extends Cleric {
 class WarCleric extends Cleric {
     constructor() {
         super()
-        this.characterSubClass= "(War domain)";
+        this.subClass= "(War domain)";
         this.armorProficiencies = {
             none: true,
             light: true,
@@ -192,5 +222,27 @@ class WarCleric extends Cleric {
         setSpellsPrepared("Divine Favor","Shield of Faith");
         this.characterFeatures = ["Divine Domain: War","War Priest", "Spellcasting"];
     }
+    get AC() {
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            case ArmorType.HEAVY:
+                ac = this.armorClass
+                break;
+            default:
+                break;
+        }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
+    }
 }
-let cleric = new WarCleric();

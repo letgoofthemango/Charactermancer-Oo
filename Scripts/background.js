@@ -29,10 +29,10 @@ class ToolProficiency {
 
 class Background {
 
-    constructor(name, toolTypeConstraints) {
-        // TODO: tool proficiency constration validation
+    constructor(name, pSkill1, pSkill2) {
         
         this.name = name;
+        this.setPossibleSkills(pSkill1, pSkill2);
         this.skillproficiency1 = skillproficiency1;
         this.skillproficiency2 = skillproficiency2;
         

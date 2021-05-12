@@ -1,27 +1,34 @@
-class Druid extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.class = CharacterClasses.DRUID;
-        this.hitDice = 8;
+        this.class = CharacterClasses.FIGHTER;
+        this.hitDice = 10;
         this.armorProficiencies = {
             none: true,
             light: true,
             medium: true,
-            heavy: false,
+            heavy: true,
             shields: true
         }
+        this.setSimpleWeaponsProficiency();
+        this.setMartialWeaponsProficiency();
         this.maxToolProficiencies = 0;
-        this.setWeaponsProficiency("club", "dagger", "dart", "javelin", "mace", "quarterstaff", "scimitar", "sickle", "sling", "spear");
-        herbalism.proficiency = true;
-        this.features = ["Druidic", "Spellcasting"];
         this.maxLanguageProficiencies = 0;
-        druidic.proficiency = true;
-        this.setSaves(intelligence, wisdom);
+        this.setSaves(strength, constitution);
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(arcana, animalHandling, insight, medicine, nature, perception, religion, survival);
-        this.cantripSpells = 2;
-        this.firstLevelSpells = 22;
-        this.firstLevelSpellSlots = 2;
+        this.setPossibleSkills(acrobatics, animalHandling, athletics, history, insight, intimidation, perception, survival);
+        this.features = ["Fighting Style", "Second Wind"];
+        this.fightingStyle;
+    }
+
+    setFightingStyle(style) { //FINISH THIS!
+        this.fightingStyle = null;
+        this.fightingStyle = style;
+        if (style == "Archery") {
+            this.rangedBonus = this.rangedAttackBonus + 2
+        } else {
+            this.rangedBonus = this.rangedAttackBonus;
+        }
     }
 
     get AC() {
@@ -45,13 +52,12 @@ class Druid extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if (this.hasShield) {
             ac += 2
         }
+        if (this.fightingStyle === "Defense") {
+            ac += 1
+        }
         return ac;
     }
-    get spellSave() {
-        return 8 + 2 + wisdom.mod
-    }
-    get spellAttackMod() {
-        return getNumber(2 + wisdom.mod)
-    }
+
 }
-let druid = new Druid();
+
+// Archery and Defense fighting style how to implement?
