@@ -34,6 +34,7 @@ class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 ac = this.armorClass + dexterity.mod
                 break;
             default:
+                alert("ERROR WHILE CALCULATING AC!");
                 break;
         }
         return ac;

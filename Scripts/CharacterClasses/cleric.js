@@ -36,6 +36,7 @@ class Cleric extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
                 break;
             default:
+                alert("ERROR WHILE CALCULATING AC!");
                 break;
         }
         if (this.hasShield) {
@@ -93,6 +94,7 @@ class LifeCleric extends Cleric {
                 ac = this.armorClass
                 break;
             default:
+                alert("ERROR WHILE CALCULATING AC!");
                 break;
         }
         if (this.hasShield) {
@@ -144,6 +146,7 @@ class NatureCleric extends Cleric {
                 ac = this.armorClass
                 break;
             default:
+                alert("ERROR WHILE CALCULATING AC!");
                 break;
         }
         if (this.hasShield) {
@@ -186,6 +189,7 @@ class TempestCleric extends Cleric {
                 ac = this.armorClass
                 break;
             default:
+                alert("ERROR WHILE CALCULATING AC!");
                 break;
         }
         if (this.hasShield) {
@@ -209,7 +213,7 @@ class TrickeryCleric extends Cleric {
 class WarCleric extends Cleric {
     constructor() {
         super()
-        this.subClass= "(War domain)";
+        this.subClass = "(War domain)";
         this.armorProficiencies = {
             none: true,
             light: true,
@@ -219,8 +223,8 @@ class WarCleric extends Cleric {
         }
         this.setMartialWeaponsProficiency();
         setSpellsKnown("Divine Favor");
-        setSpellsPrepared("Divine Favor","Shield of Faith");
-        this.characterFeatures = ["Divine Domain: War","War Priest", "Spellcasting"];
+        setSpellsPrepared("Divine Favor", "Shield of Faith");
+        this.characterFeatures = ["Divine Domain: War", "War Priest", "Spellcasting"];
     }
     get AC() {
         let ac = 0
@@ -238,6 +242,7 @@ class WarCleric extends Cleric {
                 ac = this.armorClass
                 break;
             default:
+                alert("ERROR WHILE CALCULATING AC!");
                 break;
         }
         if (this.hasShield) {

@@ -33,7 +33,7 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
                 break;
             default:
-                throw new Error("ERROR WHILE CALCULATING AC!");
+                alert("ERROR WHILE CALCULATING AC!");
         }
         if (this.hasShield) {
             ac += 2

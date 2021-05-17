@@ -1,0 +1,22 @@
+Duplizierte Methodik für Skills tools und languages bei backgrounds und character ok so?
+Inventar choosing bei background?
+
+
+Lösung für Goldpouch?
+alle Items zu Objekten machen?
+
+Character -> Class -> background
+
+
+CurrentInventoryItem:
+  CurrentInventoryItem
+  step: int
+
+iventory = [CurrentInventoryItems]
+iventory.push(new CurrentInventoryItem(item, stepNumber))
+global stepNumber
+
+stepBack() {
+    iventory = iventory.filter(// item.step <= stepNumber)
+}
+

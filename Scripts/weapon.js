@@ -20,8 +20,8 @@ class RangedWeapon extends InventoryItem {
 
 class MeleeWeapon extends InventoryItem {
     constructor(name, type, copper, silver, gold, weight, description, damage, damageType, simple, martial, light, heavy, twoHanded, meleeRange, special, finesse, reach, thrown, range, versatile, versatileDamage) {
-        super(name, type, copper, silver, gold, weight, description),
-            this.damage = damage;
+        super(name, type, copper, silver, gold, weight, description);
+        this.damage = damage;
         this.damageType = damageType;
         this.simple = simple;
         this.martial = martial;

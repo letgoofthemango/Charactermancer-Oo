@@ -32,7 +32,7 @@ class Rogue extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 ac = this.armorClass + dexterity.mod
                 break;
             default:
-                throw new Error("ERROR WHILE CALCULATING AC!");
+                alert("ERROR WHILE CALCULATING AC!");
         }
         return ac;
     }

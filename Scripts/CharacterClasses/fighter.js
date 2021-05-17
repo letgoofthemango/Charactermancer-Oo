@@ -47,6 +47,7 @@ class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 ac = this.armorClass
                 break;
             default:
+                alert("ERROR WHILE CALCULATING AC!");
                 break;
         }
         if (this.hasShield) {
