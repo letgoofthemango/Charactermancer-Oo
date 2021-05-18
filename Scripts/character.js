@@ -25,7 +25,7 @@ class Character {
         this.features;
         this.geats;
         this.abilities = [strength, dexterity, constitution, intelligence, wisdom, charisma]
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: false,
             medium: false,
@@ -68,145 +68,155 @@ class Character {
     }
 
 
-get AC() {
-    let ac = 0
-    switch (this.armorType) {
-        case ArmorType.NONE:
-            ac = 10 + dexterity.mod
-            break;
-        case ArmorType.LIGHT:
-            ac = this.armorClass + dexterity.mod
-            break;
-        case ArmorType.MEDIUM:
-            ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-            break;
-        case ArmorType.HEAVY:
-            ac = this.armorClass
-            break;
-        default:
-            alert("ERROR WHILE CALCULATING AC!");
+    get AC() {
+        let ac = 0
+        switch (this.armorType) {
+            case ArmorType.NONE:
+                ac = 10 + dexterity.mod
+                break;
+            case ArmorType.LIGHT:
+                ac = this.armorClass + dexterity.mod
+                break;
+            case ArmorType.MEDIUM:
+                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+                break;
+            case ArmorType.HEAVY:
+                ac = this.armorClass
+                break;
+            default:
+                alert("ERROR WHILE CALCULATING AC!");
+        }
+        if (this.hasShield) {
+            ac += 2
+        }
+        return ac;
     }
-    if (this.hasShield) {
-        ac += 2
-    }
-    return ac;
-}
-get rangedAttackBonus() { return dexterity.mod }
-get meleeAttackBonus(){ } //????????????????????????????????????????????????????????????????????????????????????????????????????
+    get rangedAttackBonus() { return dexterity.mod }
+    get meleeAttackBonus() { } //????????????????????????????????????????????????????????????????????????????????????????????????????
 
 
-// ----------------------------------------------------Abilities-------------------------------------------------------------------------------
-get initiativeMod() { return dexterity.mod }
-get passivePerception() { return 10 + wisdom.mod }
-get hitpoints() {
-    return this.hitDice + constitution.mod;
-}
-resetAbilityScores() {
-    this.abilities.forEach(element => {
-        element.value = 8;
-    });
-}
-resetSavingthrowProficiencies() {
-    this.abilities.forEach(element => {
-        element.proficiency = false;
-    });
-}
-setSaves(...args) {
-    args.forEach(save => save.proficiency = true)
-}
-getAbility(abilityName) {
-    for (const ability of this.abilities) {
-        if (ability.name === abilityName) {
-            return ability
+    // ----------------------------------------------------Abilities-------------------------------------------------------------------------------
+    get initiativeMod() { return dexterity.mod }
+    get passivePerception() { return 10 + wisdom.mod }
+    get hitpoints() {
+        return this.hitDice + constitution.mod + this.race.hitpoints;
+    }
+
+    get armorProficiencies() {
+        return {
+            none: true,
+            light: this.race.armorProficiencies.light || this._armorProficiencies.light,
+            medium: this.race.armorProficiencies.medium || this._armorProficiencies.medium,
+            heavy: this.race.armorProficiencies.heavy || this._armorProficiencies.heavy,
+            shields: this.race.armorProficiencies.shields || this._armorProficiencies.shields,
         }
     }
-}
-// ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
-setSkillProficiencies(...args) {
-    args.forEach(skill => skill.proficiency = 2)
-}
-resetSkillProficiencies() {
-    this.skills.forEach(skill => skill.proficiency = SkillLevel.UNSKILLED)
-    console.log("Skills reset.")
-}
-setPossibleSkills(...args) {
-    args.forEach(skill => skill.possibleSkill = true)
-}
-resetPossibleSkills() {
-    this.skills.forEach(skill => skill.possibleSkill = false);
-    console.log("Possible skills reset.")
-}
-get possibleSkills() {
-    return this.skills.filter(element => element.possibleSkill === true)
-}
-// ----------------------------------------------------TOOLS-------------------------------------------------------------------------------
-
-resetToolProficiencies() {
-    this.tools.forEach(tool => tool.proficiency = false);
-    console.log("Tool proficiencies reset.")
-}
-get possibleTools() {
-    return this.tools.filter(element => element.possibleTool === true)
-}
-set maxTools(number) {
-    this.numberOfToolsToChoose = number;
-}
-setPossibleTools(...args) {
-    args.forEach(tool => tool.possibleTool = true)
-}
-
-// ----------------------------------------------------LANGUAGES-------------------------------------------------------------------------------
-set maxLanguages(number) {
-    this.numberOfLanguagesToChoose = number;
-}
-resetLanguageProficiencies() {
-    this.languages(element => {
-        element.proficiency = false;
-    });
-    common.proficiency = true;
-}
-// ----------------------------------------------------ARMOR-------------------------------------------------------------------------------
-resetArmorProficiencies() {
-    this.armorProficiencies.shields = false; //BETTER FUNCTION SCHREIBEN
-    this.armorProficiencies.heavy = false;
-    this.armorProficiencies.medium = false;
-    this.armorProficiencies.light = false;
-    this.armorProficiencies.none = true;
-    // for (const [key,value] of this.armorProficiencies) { value = false}; doesnt work because it is not an iterable
-}
-setArmorProficiencies() {
-    //NEEDS CODE!!!!!!!
-}
-// ----------------------------------------------------WEAPONS-------------------------------------------------------------------------------
-setWeaponsProficiency(...args) {
-    args.forEach(weaponName => getWeapon(weaponName).proficiency = true);
-}
-resetWeaponsProficiencies() {
-    weapons.forEach(weapon => weapon.proficiency = false);
-}
-setSimpleWeaponsProficiency() {
-    weapons.forEach(element => {
-        if (element.simple) {
-            element.proficiency = true;
+    resetAbilityScores() {
+        this.abilities.forEach(element => {
+            element.value = 8;
+        });
+    }
+    resetSavingthrowProficiencies() {
+        this.abilities.forEach(element => {
+            element.proficiency = false;
+        });
+    }
+    setSaves(...args) {
+        args.forEach(save => save.proficiency = true)
+    }
+    getAbility(abilityName) {
+        for (const ability of this.abilities) {
+            if (ability.name === abilityName) {
+                return ability
+            }
         }
-    });
+    }
+    // ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
+    setSkillProficiencies(...args) {
+        args.forEach(skill => skill.proficiency = 2)
+    }
+    resetSkillProficiencies() {
+        this.skills.forEach(skill => skill.proficiency = SkillLevel.UNSKILLED)
+        console.log("Skills reset.")
+    }
+    setPossibleSkills(...args) {
+        args.forEach(skill => skill.possibleSkill = true)
+    }
+    resetPossibleSkills() {
+        this.skills.forEach(skill => skill.possibleSkill = false);
+        console.log("Possible skills reset.")
+    }
+    get possibleSkills() {
+        return this.skills.filter(element => element.possibleSkill === true)
+    }
+    // ----------------------------------------------------TOOLS-------------------------------------------------------------------------------
+
+    resetToolProficiencies() {
+        this.tools.forEach(tool => tool.proficiency = false);
+        console.log("Tool proficiencies reset.")
+    }
+    get possibleTools() {
+        return this.tools.filter(element => element.possibleTool === true)
+    }
+    set maxTools(number) {
+        this.numberOfToolsToChoose = number;
+    }
+    setPossibleTools(...args) {
+        args.forEach(tool => tool.possibleTool = true)
+    }
+
+    // ----------------------------------------------------LANGUAGES-------------------------------------------------------------------------------
+    set maxLanguages(number) {
+        this.numberOfLanguagesToChoose = number;
+    }
+    resetLanguageProficiencies() {
+        this.languages(element => {
+            element.proficiency = false;
+        });
+        common.proficiency = true;
+    }
+    // ----------------------------------------------------ARMOR-------------------------------------------------------------------------------
+    resetArmorProficiencies() {
+        this.armorProficiencies.shields = false; //BETTER FUNCTION SCHREIBEN
+        this.armorProficiencies.heavy = false;
+        this.armorProficiencies.medium = false;
+        this.armorProficiencies.light = false;
+        this.armorProficiencies.none = true;
+        // for (const [key,value] of this.armorProficiencies) { value = false}; doesnt work because it is not an iterable
+    }
+    setArmorProficiencies() {
+        //NEEDS CODE!!!!!!!
+    }
+    // ----------------------------------------------------WEAPONS-------------------------------------------------------------------------------
+    setWeaponsProficiency(...args) {
+        args.forEach(weaponName => getWeapon(weaponName).proficiency = true);
+    }
+    resetWeaponsProficiencies() {
+        weapons.forEach(weapon => weapon.proficiency = false);
+    }
+    setSimpleWeaponsProficiency() {
+        weapons.forEach(element => {
+            if (element.simple) {
+                element.proficiency = true;
+            }
+        });
+    }
+    setMartialWeaponsProficiency() {
+        weapons.forEach(element => {
+            if (element.martial) {
+                element.proficiency = true;
+            }
+        });
+    }
+    // ----------------------------------------------------SPELLS-------------------------------------------------------------------------------
+    getCantrips() {
+        return spells.filter(spell => spell.level === 0 && spell.classes.includes(this.class))
+    }
+    getfirstLevelSpells() {
+        return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.class))
+    }
 }
-setMartialWeaponsProficiency() {
-    weapons.forEach(element => {
-        if (element.martial) {
-            element.proficiency = true;
-        }
-    });
-}
-// ----------------------------------------------------SPELLS-------------------------------------------------------------------------------
-getCantrips() {
-    return spells.filter(spell => spell.level === 0 && spell.classes.includes(this.class))
-}
-getfirstLevelSpells() {
-    return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.class))
-}
-}
-let char = new Character();
+// let character = new Character();
 
 function fullCharacterReset() {
     //NEEDS CODE, HOW TO DEAL WITH GLOBAL AND LOCAL FUNCTIONS???

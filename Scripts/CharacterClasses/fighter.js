@@ -3,7 +3,7 @@ class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.FIGHTER;
         this.hitDice = 10;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
@@ -60,5 +60,4 @@ class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
 }
-
 // Archery and Defense fighting style how to implement?

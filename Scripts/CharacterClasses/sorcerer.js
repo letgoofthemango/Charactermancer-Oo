@@ -3,7 +3,7 @@ class Sorcerer extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.SORCERER;
         this.hitDice = 6;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: false,
             medium: false,
@@ -52,7 +52,7 @@ class WildSorcerer extends Sorcerer {
     constructor() {
         super()
         this.subClass = "(Wild Magic origin)";
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
@@ -63,4 +63,3 @@ class WildSorcerer extends Sorcerer {
         this.characterFeatures = ["Sorcerous Origin: Wild Magic", "Wild Magic Surge", "Tides of Chaos", "Spellcasting"];
     }
 }
-let sorc= new WildSorcerer();

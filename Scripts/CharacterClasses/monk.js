@@ -3,7 +3,7 @@ class Monk extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.MONK;
         this.hitDice = 8;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: false,
             medium: false,

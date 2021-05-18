@@ -19,19 +19,9 @@ const BackgroundNames = {
     URCHIN: "Urchin"
 }
 
-class ToolProficiency {
-    constructor(tool, bonus) {
-        // TODO
-    }
-}
-
-
-
-
 class Background {
     constructor(/* name, numberOfLanguagesToChoose, skill1, skill2, numberOfToolsToChoose, gold, feature, ...args */) {
         this.name;// = name;
-        //this.languages = [abyssal, auran, aquan, celestial, common, deepspeech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, halfling, ignan, infernal, orc, primordial, sylvan, terran, thievesCant, undercommon];
         this.numberOfLanguagesToChoose = 0;// = numberOfLanguagesToChoose;
         this.numberOfToolsToChoose = 0;// = numberOfToolsToChoose;
         this.gold;// = gold;
@@ -125,7 +115,7 @@ class Gladiator extends Background {
         this.chooseInventory2 = ["love letter", "lock of hair", "trinket"]
         this.inventory = ["costume clothes", "pouch"];
     }
-} let background = new Gladiator();
+}
 
 class FolkHero extends Background {
     constructor() {
@@ -156,7 +146,7 @@ class GuildMerchant extends Background {
         this.name = BackgroundNames.GUILDMERCHANT;
         this.setSkillProficiencies(insight, persuasion);
         this.setPossibleTools(brewer, calligrapher, carpenter, cartographer, cobbler, cook, glassblower, jewler, leatherworker, mason, painter, potter, smith, tinker, weaver, woodcarver, navigators);
-        this.numberOfLanguagesToChoose = 1; //or 2 with the function for above?
+        this.numberOfLanguagesToChoose = 1; //or 2 with the function for above?????????????????????????????????
         this.gold = 15;
         this.feature = "Guild Membership";
         this.chooseInventory = [/* same artisan tool as above */, "mule and cart"] //how to? only with one function?

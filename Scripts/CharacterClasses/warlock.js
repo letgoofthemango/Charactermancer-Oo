@@ -3,7 +3,7 @@ class Warlock extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.WARLOCK;
         this.hitDice = 8;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: false,

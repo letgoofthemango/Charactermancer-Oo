@@ -3,7 +3,7 @@ class Druid extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.DRUID;
         this.hitDice = 8;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
@@ -55,4 +55,3 @@ class Druid extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         return getNumber(2 + wisdom.mod)
     }
 }
-let druid = new Druid();

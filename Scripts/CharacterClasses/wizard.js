@@ -3,7 +3,7 @@ class Wizard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.Wizard;
         this.hitDice = 6;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: false,
             medium: false,

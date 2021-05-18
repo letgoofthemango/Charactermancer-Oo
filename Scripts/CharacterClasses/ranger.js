@@ -3,7 +3,7 @@ class Ranger extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.Ranger;
         this.hitDice = 10;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,

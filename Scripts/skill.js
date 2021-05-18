@@ -40,24 +40,24 @@ class Skill {
 
 }
 
-let acrobatics = new Skill(Skillnames.ACROBATICS, dexterity);
-let animalHandling = new Skill(Skillnames.ANIMALHANDLING, wisdom);
-let arcana = new Skill(Skillnames.ARCANA, intelligence);
-let athletics = new Skill(Skillnames.ATHLETICS, strength);
-let deception = new Skill(Skillnames.DECEPTION, charisma);
-let history = new Skill(Skillnames.HISTORY, intelligence);
-let insight = new Skill(Skillnames.INSIGHT, wisdom);
-let intimidation = new Skill(Skillnames.INTIMIDATION, charisma);
-let investigation = new Skill(Skillnames.INVESTIGATION, intelligence);
-let medicine = new Skill(Skillnames.MEDICINE, wisdom);
-let nature = new Skill(Skillnames.NATURE, intelligence);
-let perception = new Skill(Skillnames.PERCEPTION, wisdom);
-let performance = new Skill(Skillnames.PERFORMANCE, charisma);
-let persuasion = new Skill(Skillnames.PERSUASION, charisma);
-let religion = new Skill(Skillnames.RELIGION, intelligence);
-let sleightOfHand = new Skill(Skillnames.SLEIGHTOFHAND, dexterity);
-let stealth = new Skill(Skillnames.STEALTH, dexterity);
-let survival = new Skill(Skillnames.SURVIVAL, wisdom);
+let acrobatics = new Skill(Skillnames.ACROBATICS, dexterity),
+    animalHandling = new Skill(Skillnames.ANIMALHANDLING, wisdom),
+    arcana = new Skill(Skillnames.ARCANA, intelligence),
+    athletics = new Skill(Skillnames.ATHLETICS, strength),
+    deception = new Skill(Skillnames.DECEPTION, charisma),
+    history = new Skill(Skillnames.HISTORY, intelligence),
+    insight = new Skill(Skillnames.INSIGHT, wisdom),
+    intimidation = new Skill(Skillnames.INTIMIDATION, charisma),
+    investigation = new Skill(Skillnames.INVESTIGATION, intelligence),
+    medicine = new Skill(Skillnames.MEDICINE, wisdom),
+    nature = new Skill(Skillnames.NATURE, intelligence),
+    perception = new Skill(Skillnames.PERCEPTION, wisdom),
+    performance = new Skill(Skillnames.PERFORMANCE, charisma),
+    persuasion = new Skill(Skillnames.PERSUASION, charisma),
+    religion = new Skill(Skillnames.RELIGION, intelligence),
+    sleightOfHand = new Skill(Skillnames.SLEIGHTOFHAND, dexterity),
+    stealth = new Skill(Skillnames.STEALTH, dexterity),
+    survival = new Skill(Skillnames.SURVIVAL, wisdom);
 
 // class SkillView {
 //     constructor(skill) {

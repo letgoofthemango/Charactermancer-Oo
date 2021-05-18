@@ -3,7 +3,7 @@ class Rogue extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.ROGUE;
         this.hitDice = 8;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: false,

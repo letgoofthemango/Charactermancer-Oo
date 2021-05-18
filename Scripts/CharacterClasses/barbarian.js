@@ -3,7 +3,7 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class= CharacterClasses.BARBARIAN;
         this.hitDice = 12;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,

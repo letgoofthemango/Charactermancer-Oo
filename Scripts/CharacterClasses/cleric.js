@@ -3,7 +3,7 @@ class Cleric extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         super();
         this.class = CharacterClasses.CLERIC;
         this.hitDice = 8;
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
@@ -68,7 +68,7 @@ class LifeCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Life domain)";
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
@@ -119,7 +119,7 @@ class NatureCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Nature domain)";
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
@@ -161,7 +161,7 @@ class TempestCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Tempest domain)";
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
@@ -214,7 +214,7 @@ class WarCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(War domain)";
-        this.armorProficiencies = {
+        this._armorProficiencies = {
             none: true,
             light: true,
             medium: true,
