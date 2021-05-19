@@ -19,7 +19,12 @@ class Monk extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.maxSkillsProficiencies = 2;
         this.setPossibleSkills(acrobatics, athletics, history, insight, religion, stealth);
         this.features = ["Unarmored Defense", "Martial Arts"];
+        this.meleeBonusChoice;
     }
 
     get AC() { return 10 + wisdom.mod + dexterity.mod }
+
+    get meleeAttackBonus() {
+        // calc with melleBonusChoice.
+    }
 }

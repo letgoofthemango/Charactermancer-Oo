@@ -81,7 +81,7 @@ class GreatOldOneWarlock extends Warlock {
         this.subClass = "(Great Old One)";
         this.characterFeatures = ["Sorcerous Origin: Great Old One", "Awakened Mind", "Pact Magic"];
     }
-    getfirstLevelSpells() {
+    get firstLevelSpells() {
         let spellsArray = super.getfirstLevelSpells();
         spellsArray.push(getSpell("Dissonant Whispers"), getSpell("Tasha's Hideous Laughter"));
         spellsArray.sort((a, b) => sortSpells(a,b))

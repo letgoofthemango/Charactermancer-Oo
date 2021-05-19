@@ -21,7 +21,7 @@ class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.fightingStyle;
     }
 
-    setFightingStyle(style) { //FINISH THIS!
+    setFightingStyle(style) { // TODO !!!!!!!FINISH THIS!
         this.fightingStyle = null;
         this.fightingStyle = style;
         if (style == "Archery") {
@@ -32,27 +32,28 @@ class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     get AC() {
-        let ac = 0
-        switch (this.armorType) {
-            case ArmorType.NONE:
-                ac = 10 + dexterity.mod
-                break;
-            case ArmorType.LIGHT:
-                ac = this.armorClass + dexterity.mod
-                break;
-            case ArmorType.MEDIUM:
-                ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-                break;
-            case ArmorType.HEAVY:
-                ac = this.armorClass
-                break;
-            default:
-                alert("ERROR WHILE CALCULATING AC!");
-                break;
-        }
-        if (this.hasShield) {
-            ac += 2
-        }
+        ac = super.AC; // TODO TEST THIS !!!!!!
+        // let ac = 0
+        // switch (this.armorType) {
+        //     case ArmorType.NONE:
+        //         ac = 10 + dexterity.mod
+        //         break;
+        //     case ArmorType.LIGHT:
+        //         ac = this.armorClass + dexterity.mod
+        //         break;
+        //     case ArmorType.MEDIUM:
+        //         ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
+        //         break;
+        //     case ArmorType.HEAVY:
+        //         ac = this.armorClass
+        //         break;
+        //     default:
+        //         alert("ERROR WHILE CALCULATING AC!");
+        //         break;
+        // }
+        // if (this.hasShield) {
+        //     ac += 2
+        // }
         if (this.fightingStyle === "Defense") {
             ac += 1
         }

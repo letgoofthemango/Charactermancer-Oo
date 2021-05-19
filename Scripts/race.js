@@ -89,12 +89,12 @@ class HillDwarf extends Race {
         this.size = CharacterSizes.MEDIUM;
         this.darkvision = 60;
         this.speed = 25;
-        this.setDwarfenCombatTraining();
+        this.initDwarfenCombatTraining();
         this.extraToolProficiency = [smith, brewer, mason];
         dwarvish.proficiency = true;
         this.features = ["Speed", "Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning", "Dwarven Toughness", "", "", ""];
     }
-    setDwarfenCombatTraining() {
+    initDwarfenCombatTraining() {
         getWeapon("battleaxe").proficiency = true;
         getWeapon("handaxe").proficiency = true;
         getWeapon("light hammer").proficiency = true;
@@ -115,12 +115,12 @@ class MountainDwarf extends Race {
         this.size = CharacterSizes.MEDIUM;
         this.darkvision = 60;
         this.speed = 25;
-        this.setDwarfenCombatTraining();
+        this.initDwarfenCombatTraining();
         this.extraToolProficiency = [smith, brewer, mason];
         dwarvish.proficiency = true;
         this.features = ["Speed", "Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning", "Dwarven Toughness", "", "", ""];
     }
-    setDwarfenCombatTraining() {
+    initDwarfenCombatTraining() {
         getWeapon("battleaxe").proficiency = true;
         getWeapon("handaxe").proficiency = true;
         getWeapon("light hammer").proficiency = true;
@@ -149,10 +149,10 @@ class Drow extends Race {
         perception.proficiency = true;
         elvish.proficiency = true;
         getSpell("Dancing Lights").known = true;
-        this.setDrowWeaponTraining();
+        this.initDrowWeaponTraining();
         this.features = ["Superior Darkvision", "Keen Senses", "Fey Ancestry", "Trance", "Sunlight Sensitivity", "Drow Magic", "Drow Weapon Training"];
     }
-    setDrowWeaponTraining() {
+    initDrowWeaponTraining() {
         getWeapon("rapier").proficiency = true;
         getWeapon("shortsword").proficiency = true;
         getWeapon("light hammer").proficiency = true;
@@ -172,10 +172,10 @@ class HighElf extends Race {
         this.speed = 30;
         this.extraLanguages = 1;
         this.extraCantrip = 1;
-        this.setElfWeaponTraining();
+        this.initElfWeaponTraining();
         this.features = ["Darkvision", "Keen Senses", "Fey Ancestry", "Trance", "Elf Weapon Training", "Cantrip"];
     }
-    setElfWeaponTraining() {
+    initElfWeaponTraining() {
         getWeapon("longsword").proficiency = true;
         getWeapon("shortsword").proficiency = true;
         getWeapon("shortbow").proficiency = true;
@@ -194,10 +194,10 @@ class WoodElf extends Race {
         this.speed = 35;
         this.extraLanguages = 1;
         this.extraCantrip = 1;
-        this.setElfWeaponTraining();
+        this.initElfWeaponTraining();
         this.features = ["Darkvision", "Keen Senses", "Fey Ancestry", "Trance", "Elf Weapon Training", "Fleet of Foot", "Mask of the Wild"];
     }
-    setElfWeaponTraining() {
+    initElfWeaponTraining() {
         getWeapon("longsword").proficiency = true;
         getWeapon("shortsword").proficiency = true;
         getWeapon("shortbow").proficiency = true;
@@ -307,7 +307,6 @@ class Human extends Race {
         this.speed = 30;
     }
 }
-let race = new Human();
 class Tiefling extends Race {
     constructor() {
         super();

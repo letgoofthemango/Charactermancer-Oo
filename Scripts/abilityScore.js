@@ -27,8 +27,6 @@ class AbilityScore {
     }
 }
 
-
-
 // ignore rest
 
 let strength = new AbilityScore(AbilityType.STRENGTH, 8),

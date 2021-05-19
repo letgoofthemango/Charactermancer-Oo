@@ -38,3 +38,15 @@ class Me extends Person {
     }
 }
 let me = new Me();
+
+
+
+
+
+
+1. test die AC in FIghter!!!
+2. features fertigmachen!
+test draconic sorc hitpoints getter!!
+getfirstSpelles rewrite
+character.js getters und setter umschreiben
+3. TODO suchen

@@ -41,7 +41,8 @@ class DraconicSorcerer extends Sorcerer {
         this.characterFeatures = ["Sorcerous Origin: Draconic", "Draconic Resilience", "Spellcasting"];
     }
     get hitpoints() {
-        return this.hitDice + constitution.mod + 1;
+        // return super.hitpoints + 1 // TODO TEST
+        return this.hitDice + constitution.mod + 1 + this.race.hitpoints;
     }
     get AC() { return 13 + dexterity.mod }
 }

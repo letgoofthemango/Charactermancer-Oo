@@ -41,8 +41,8 @@ class Character {
         this.meleeBonus;
         this.rangedBonus = dexterity.mod;
         this.equipment;
-        this.cantripSpells;
-        this.firstLevelSpells;
+        this._cantrips;
+        this._firstLevelSpells;
         this.firstLevelSpellSlots;
         this.race;
         this.alignment;
@@ -64,7 +64,6 @@ class Character {
         this.copper;
         this.silver;
         this.gold;
-
     }
 
 
@@ -92,7 +91,7 @@ class Character {
         return ac;
     }
     get rangedAttackBonus() { return dexterity.mod }
-    get meleeAttackBonus() { } //????????????????????????????????????????????????????????????????????????????????????????????????????
+    get meleeAttackBonus() { return strength.mod } // has to be implemented during the character creation process???????
 
 
     // ----------------------------------------------------Abilities-------------------------------------------------------------------------------
@@ -105,7 +104,7 @@ class Character {
     get armorProficiencies() {
         return {
             none: true,
-            light: this.race.armorProficiencies.light || this._armorProficiencies.light,
+            light: this.race.armorProficiencies.light || this._armorProficiencies.light, // race will be set by the controller during the creation process
             medium: this.race.armorProficiencies.medium || this._armorProficiencies.medium,
             heavy: this.race.armorProficiencies.heavy || this._armorProficiencies.heavy,
             shields: this.race.armorProficiencies.shields || this._armorProficiencies.shields,
@@ -161,7 +160,7 @@ class Character {
     set maxTools(number) {
         this.numberOfToolsToChoose = number;
     }
-    setPossibleTools(...args) {
+    set possibleTools(...args) { // TODO, does a setter work with ...args
         args.forEach(tool => tool.possibleTool = true)
     }
 
@@ -177,31 +176,28 @@ class Character {
     }
     // ----------------------------------------------------ARMOR-------------------------------------------------------------------------------
     resetArmorProficiencies() {
-        this.armorProficiencies.shields = false; //BETTER FUNCTION SCHREIBEN
-        this.armorProficiencies.heavy = false;
-        this.armorProficiencies.medium = false;
-        this.armorProficiencies.light = false;
-        this.armorProficiencies.none = true;
+        this._armorProficiencies.shields = false; //BETTER FUNCTION SCHREIBEN
+        this._armorProficiencies.heavy = false;
+        this._armorProficiencies.medium = false;
+        this._armorProficiencies.light = false;
+        this._armorProficiencies.none = true;
         // for (const [key,value] of this.armorProficiencies) { value = false}; doesnt work because it is not an iterable
     }
-    setArmorProficiencies() {
-        //NEEDS CODE!!!!!!!
-    }
     // ----------------------------------------------------WEAPONS-------------------------------------------------------------------------------
-    setWeaponsProficiency(...args) {
+    set WeaponsProficiency(...args) { //TODO
         args.forEach(weaponName => getWeapon(weaponName).proficiency = true);
     }
     resetWeaponsProficiencies() {
         weapons.forEach(weapon => weapon.proficiency = false);
     }
-    setSimpleWeaponsProficiency() {
+    initSimpleWeaponsProficiency() { //TODO
         weapons.forEach(element => {
             if (element.simple) {
                 element.proficiency = true;
             }
         });
     }
-    setMartialWeaponsProficiency() {
+    initMartialWeaponsProficiency() { //TODo
         weapons.forEach(element => {
             if (element.martial) {
                 element.proficiency = true;
@@ -209,14 +205,13 @@ class Character {
         });
     }
     // ----------------------------------------------------SPELLS-------------------------------------------------------------------------------
-    getCantrips() {
+    get cantrips() {
         return spells.filter(spell => spell.level === 0 && spell.classes.includes(this.class))
     }
-    getfirstLevelSpells() {
+    get firstLevelSpells() {
         return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.class))
     }
 }
-// let character = new Character();
 
 function fullCharacterReset() {
     //NEEDS CODE, HOW TO DEAL WITH GLOBAL AND LOCAL FUNCTIONS???
