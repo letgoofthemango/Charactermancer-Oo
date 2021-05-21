@@ -38,11 +38,14 @@ class Character {
         this.maxToolProficiencies;
         this.maxLanguageProficiencies;
         this.attacks;
-        this.meleeBonus;
-        this.rangedBonus = dexterity.mod;
+        // this.meleeAttackBonus;
+        // this.rangedAttackBonus = dexterity.mod;
+        this.meleeBonusChoice;
         this.equipment;
         this._cantrips;
+        this.cantripSpellsToChoose;
         this._firstLevelSpells;
+        this.firstLevelSpellsToChoose;
         this.firstLevelSpellSlots;
         this.race;
         this.alignment;
@@ -90,8 +93,8 @@ class Character {
         }
         return ac;
     }
-    get rangedAttackBonus() { return dexterity.mod }
-    get meleeAttackBonus() { return strength.mod } // has to be implemented during the character creation process???????
+    get rangedBonus() { return dexterity.mod }
+    get meleeBonus() { return strength.mod } // has to be implemented during the character creation process???????
 
 
     // ----------------------------------------------------Abilities-------------------------------------------------------------------------------
@@ -104,7 +107,7 @@ class Character {
     get armorProficiencies() {
         return {
             none: true,
-            light: this.race.armorProficiencies.light || this._armorProficiencies.light, // race will be set by the controller during the creation process
+            light: this.race.armorProficiencies.light || this._armorProficiencies.light, // race will be set by the controller during the creation process??
             medium: this.race.armorProficiencies.medium || this._armorProficiencies.medium,
             heavy: this.race.armorProficiencies.heavy || this._armorProficiencies.heavy,
             shields: this.race.armorProficiencies.shields || this._armorProficiencies.shields,
@@ -120,7 +123,7 @@ class Character {
             element.proficiency = false;
         });
     }
-    setSaves(...args) {
+    set saves(args) {
         args.forEach(save => save.proficiency = true)
     }
     getAbility(abilityName) {
@@ -131,19 +134,19 @@ class Character {
         }
     }
     // ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
-    setSkillProficiencies(...args) {
+    set SkillProficiencies(args) {
         args.forEach(skill => skill.proficiency = 2)
     }
     resetSkillProficiencies() {
         this.skills.forEach(skill => skill.proficiency = SkillLevel.UNSKILLED)
         console.log("Skills reset.")
     }
-    setPossibleSkills(...args) {
-        args.forEach(skill => skill.possibleSkill = true)
-    }
     resetPossibleSkills() {
         this.skills.forEach(skill => skill.possibleSkill = false);
         console.log("Possible skills reset.")
+    }
+    set possibleSkills(args) {
+        args.forEach(skill => skill.possibleSkill = true)
     }
     get possibleSkills() {
         return this.skills.filter(element => element.possibleSkill === true)
@@ -160,7 +163,7 @@ class Character {
     set maxTools(number) {
         this.numberOfToolsToChoose = number;
     }
-    set possibleTools(...args) { // TODO, does a setter work with ...args
+    set possibleTools(args) { // TODO, does a setter work with ...args
         args.forEach(tool => tool.possibleTool = true)
     }
 
@@ -184,20 +187,20 @@ class Character {
         // for (const [key,value] of this.armorProficiencies) { value = false}; doesnt work because it is not an iterable
     }
     // ----------------------------------------------------WEAPONS-------------------------------------------------------------------------------
-    set WeaponsProficiency(...args) { //TODO
+    set weaponsProficiency(args) {
         args.forEach(weaponName => getWeapon(weaponName).proficiency = true);
     }
     resetWeaponsProficiencies() {
         weapons.forEach(weapon => weapon.proficiency = false);
     }
-    initSimpleWeaponsProficiency() { //TODO
+    simpleWeaponsProficiency() {
         weapons.forEach(element => {
             if (element.simple) {
                 element.proficiency = true;
             }
         });
     }
-    initMartialWeaponsProficiency() { //TODo
+    martialWeaponsProficiency() {
         weapons.forEach(element => {
             if (element.martial) {
                 element.proficiency = true;
@@ -212,6 +215,7 @@ class Character {
         return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.class))
     }
 }
+let character;
 
 function fullCharacterReset() {
     //NEEDS CODE, HOW TO DEAL WITH GLOBAL AND LOCAL FUNCTIONS???

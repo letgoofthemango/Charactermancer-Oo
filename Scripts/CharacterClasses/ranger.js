@@ -1,7 +1,7 @@
-class Ranger extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Ranger extends Character {
     constructor() {
         super();
-        this.class = CharacterClasses.Ranger;
+        this.class = CharacterClasses.RANGER;
         this.hitDice = 10;
         this._armorProficiencies = {
             none: true,
@@ -10,15 +10,15 @@ class Ranger extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: true
         }
-        this.setSimpleWeaponsProficiency();
-        this.setMartialWeaponsProficiency();
+        this.simpleWeaponsProficiency();
+        this.martialWeaponsProficiency();
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 1;
-        this.setSaves(strength, dexterity);
+        this.saves = [strength, dexterity];
         this.maxSkillsProficiencies = 3;
-        this.setPossibleSkills(animalHandling, athletics, insight, investigation, nature, perception, stealth, survival);
+        this.possibleSkills = [animalHandling, athletics, insight, investigation, nature, perception, stealth, survival];
         this.features = ["Favored Enemy", "Natural Explorer"];
-        this.favoredEnemy = null;
+        this.favoredEnemy = null; //Controller TODO
     }
 
     get AC() {

@@ -1,4 +1,4 @@
-class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Barbarian extends Character {
     constructor() {
         super();
         this.class= CharacterClasses.BARBARIAN;
@@ -10,13 +10,13 @@ class Barbarian extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: true
         }
-        this.setSimpleWeaponsProficiency();
-        this.setMartialWeaponsProficiency();
+        this.simpleWeaponsProficiency();
+        this.martialWeaponsProficiency();
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.setSaves(strength, constitution);
+        this.saves=[strength, constitution];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(animalHandling, athletics, intimidation, nature, perception, survival);
+        this.possibleSkills=[animalHandling, athletics, intimidation, nature, perception, survival];
         this.features = ["Rage", "Unarmored Defense"];
     }
 

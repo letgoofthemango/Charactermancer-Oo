@@ -1,4 +1,4 @@
-class Druid extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Druid extends Character {
     constructor() {
         super();
         this.class = CharacterClasses.DRUID;
@@ -11,16 +11,16 @@ class Druid extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             shields: true
         }
         this.maxToolProficiencies = 0;
-        this.setWeaponsProficiency("club", "dagger", "dart", "javelin", "mace", "quarterstaff", "scimitar", "sickle", "sling", "spear");
+        this.weaponsProficiency("club", "dagger", "dart", "javelin", "mace", "quarterstaff", "scimitar", "sickle", "sling", "spear");
         herbalism.proficiency = true;
         this.features = ["Druidic", "Spellcasting"];
         this.maxLanguageProficiencies = 0;
         druidic.proficiency = true;
-        this.setSaves(intelligence, wisdom);
+        this.saves = [intelligence, wisdom];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(arcana, animalHandling, insight, medicine, nature, perception, religion, survival);
-        this.cantripSpells = 2;
-        this.firstLevelSpells = 22;
+        this.possibleSkills = [arcana, animalHandling, insight, medicine, nature, perception, religion, survival];
+        this.cantripSpellsToChoose = 2;
+        this.firstLevelSpellsToChoose = 22;
         this.firstLevelSpellSlots = 2;
     }
 

@@ -1,4 +1,4 @@
-class Warlock extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Warlock extends Character {
     constructor() {
         super();
         this.class = CharacterClasses.WARLOCK;
@@ -10,14 +10,14 @@ class Warlock extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: false
         }
-        this.setSimpleWeaponsProficiency();
+        this.simpleWeaponsProficiency();
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.setSaves(wisdom, charisma);
+        this.saves = [wisdom, charisma];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(arcana, deception, history, intimidation, investigation, nature, religion);
-        this.cantripSpells = 2;
-        this.firstLevelSpells = 2;
+        this.possibleSkills = [arcana, deception, history, intimidation, investigation, nature, religion];
+        this.cantripSpellsToChoose = 2;
+        this.firstLevelSpellsToChoose = 2;
         this.firstLevelSpellSlots = 1;
         this.characterFeatures = ["Otherworldly Patron", "Pact Magic"];
     }
@@ -36,6 +36,9 @@ class Warlock extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
         return ac;
     }
+    get firstLevelSpells() {
+        return spells.filter(spell => spell.level === 1 && spell.classes.includes(this.class))
+    }
 
     get spellSave() {
         return 8 + 2 + charisma.mod
@@ -51,10 +54,10 @@ class ArchfeyWarlock extends Warlock {
         this.subClass = "(Archfey)";
         this.characterFeatures = ["Otherworldly Patron: Archfey", "Fey Presence", "Pact Magic"];
     }
-    getfirstLevelSpells() {
-        let spellsArray = super.getfirstLevelSpells();
+    get firstLevelSpells() {
+        let spellsArray = super.firstLevelSpells;
         spellsArray.push(getSpell("Sleep"), getSpell("Faerie Fire"));
-        spellsArray.sort((a, b) => sortSpells(a,b))
+        spellsArray.sort((a, b) => sortSpells(a, b))
         return spellsArray
     }
 }
@@ -67,10 +70,10 @@ class FiendWarlock extends Warlock {
         this.subClass = "(Fiend)";
         this.characterFeatures = ["Otherworldly Patron: Fiend", "Dark One's Blessing", "Pact Magic"];
     }
-    getfirstLevelSpells() {
-        let spellsArray = super.getfirstLevelSpells();
+    get firstLevelSpells() {
+        let spellsArray = super.firstLevelSpells;
         spellsArray.push(getSpell("Burning Hands"), getSpell("Command"));
-        spellsArray.sort((a, b) => sortSpells(a,b))
+        spellsArray.sort((a, b) => sortSpells(a, b))
         return spellsArray
     }
 }
@@ -82,9 +85,9 @@ class GreatOldOneWarlock extends Warlock {
         this.characterFeatures = ["Sorcerous Origin: Great Old One", "Awakened Mind", "Pact Magic"];
     }
     get firstLevelSpells() {
-        let spellsArray = super.getfirstLevelSpells();
+        let spellsArray = super.firstLevelSpells;
         spellsArray.push(getSpell("Dissonant Whispers"), getSpell("Tasha's Hideous Laughter"));
-        spellsArray.sort((a, b) => sortSpells(a,b))
+        spellsArray.sort((a, b) => sortSpells(a, b))
         return spellsArray
     }
 }

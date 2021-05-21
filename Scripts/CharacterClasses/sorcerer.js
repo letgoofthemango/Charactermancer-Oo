@@ -10,14 +10,14 @@ class Sorcerer extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: false
         }
-        this.setWeaponsProficiency("dagger", "dart", "sling", "quarterstaff", "light crossbow")
+        this.weaponsProficiency=["dagger", "dart", "sling", "quarterstaff", "light crossbow"];
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.setSaves(constitution, charisma);
+        this.saves=[constitution, charisma];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(arcana, deception, insight, intimidation, persuasion, religion);
-        this.cantripSpells = 4;
-        this.firstLevelSpells = 2;
+        this.possibleSkills=[arcana, deception, insight, intimidation, persuasion, religion];
+        this.cantripSpellsToChoose = 4;
+        this.firstLevelSpellsToChoose = 2;
         this.firstLevelSpellSlots = 2;
         this.characterFeatures = ["Sorcerous Origin", "Spellcasting"];
     }
@@ -37,7 +37,7 @@ class DraconicSorcerer extends Sorcerer {
         super()
         this.subClass = "(Draconic origin)";
         draconic.proficiency = true;
-        this.dragonAncestor; // has to be implemented(in the view???).
+        this.dragonAncestor; // has to be implemented(in the view???) TODO.
         this.characterFeatures = ["Sorcerous Origin: Draconic", "Draconic Resilience", "Spellcasting"];
     }
     get hitpoints() {
@@ -60,7 +60,6 @@ class WildSorcerer extends Sorcerer {
             heavy: true,
             shields: true
         }
-        setSpellsPrepared("Bless", "Cure Wounds");
         this.characterFeatures = ["Sorcerous Origin: Wild Magic", "Wild Magic Surge", "Tides of Chaos", "Spellcasting"];
     }
 }

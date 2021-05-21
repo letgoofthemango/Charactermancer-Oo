@@ -1,3 +1,11 @@
+const FightingStyleNames = {
+    Archery: "Archery",
+    Defense: "Defense",
+    Dueling: "Dueling",
+    GreatWeaponFighting: "Great Weapon Fighting",
+    Protection: "Protection",
+    TwoWeaponFighting: "Two-Weapon Fighting",
+}
 class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
@@ -10,55 +18,34 @@ class Fighter extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: true,
             shields: true
         }
-        this.setSimpleWeaponsProficiency();
-        this.setMartialWeaponsProficiency();
+        this.SimpleWeaponsProficiency();
+        this.MartialWeaponsProficiency();
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.setSaves(strength, constitution);
+        this.saves = [strength, constitution];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(acrobatics, animalHandling, athletics, history, insight, intimidation, perception, survival);
+        this.possibleSkills = [acrobatics, animalHandling, athletics, history, insight, intimidation, perception, survival];
         this.features = ["Fighting Style", "Second Wind"];
         this.fightingStyle;
     }
 
-    setFightingStyle(style) { // TODO !!!!!!!FINISH THIS!
+    set FightingStyle(style) {
         this.fightingStyle = null;
         this.fightingStyle = style;
-        if (style == "Archery") {
-            this.rangedBonus = this.rangedAttackBonus + 2
-        } else {
-            this.rangedBonus = this.rangedAttackBonus;
+    }
+    get rangedBonus() {
+        let rb = super.rangedBonus;
+        if (this.fightingStyle == "Archery") {
+            rb += 2
         }
+        return rb
     }
 
     get AC() {
-        ac = super.AC; // TODO TEST THIS !!!!!!
-        // let ac = 0
-        // switch (this.armorType) {
-        //     case ArmorType.NONE:
-        //         ac = 10 + dexterity.mod
-        //         break;
-        //     case ArmorType.LIGHT:
-        //         ac = this.armorClass + dexterity.mod
-        //         break;
-        //     case ArmorType.MEDIUM:
-        //         ac = this.armorClass + Math.min(Math.max(-4, dexterity.mod), 2)
-        //         break;
-        //     case ArmorType.HEAVY:
-        //         ac = this.armorClass
-        //         break;
-        //     default:
-        //         alert("ERROR WHILE CALCULATING AC!");
-        //         break;
-        // }
-        // if (this.hasShield) {
-        //     ac += 2
-        // }
+        let ac = super.AC;
         if (this.fightingStyle === "Defense") {
             ac += 1
         }
         return ac;
     }
-
 }
-// Archery and Defense fighting style how to implement?

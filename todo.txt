@@ -2,12 +2,7 @@ row für dreiteilung der Seite links outline.
 
 Go back Button!
 
---Continue with classes!
-
-
 bestätigung abfragen?
-
-check english capitalization
 
 table rows ignore striped coloring
 Table first row should not be a row.
@@ -22,31 +17,7 @@ popover für skills etc machen!
 
 add a "character features beyond first level" demarcation after 1st level features. Make it collapsed standard.
 
-
-class Me extends Person {
-    constructor() {
-        super()
-        this.hairColor= "brown";
-        this.eyeColor= "grey";
-        this.hobbies = {
-            programming: true,
-            chess: false,
-            cardio: true,
-            resistanceTraining: true,
-            reading: true
-        }
-    }
-}
-let me = new Me();
-
-
-
-
-
-
-1. test die AC in FIghter!!!
-2. features fertigmachen!
 test draconic sorc hitpoints getter!!
-getfirstSpelles rewrite
-character.js getters und setter umschreiben
+
 3. TODO suchen
+2. features fertigmachen!

@@ -1,4 +1,4 @@
-class Rogue extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Rogue extends Character {
     constructor() {
         super();
         this.class = CharacterClasses.ROGUE;
@@ -10,15 +10,15 @@ class Rogue extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: false
         }
-        this.setSimpleWeaponsProficiency();
-        this.setWeaponsProficiency("hand crossbow", "longsword", "rapier", "shortsword")
+        this.simpleWeaponsProficiency();
+        this.weaponsProficiency = ["hand crossbow", "longsword", "rapier", "shortsword"];
         this.maxToolProficiencies = 0;
         thieves.proficiency = true;
         this.maxLanguageProficiencies = 0;
         thievesCant.proficiency = true;
-        this.setSaves(dexterity, intelligence);
+        this.saves = [dexterity, intelligence];
         this.maxSkillsProficiencies = 4;
-        this.setPossibleSkills(acrobatics, athletics, deception, insight, intimidation, investigation, perception, performance, persuasion, sleightOfHand, stealth);
+        this.possibleSkills = [acrobatics, athletics, deception, insight, intimidation, investigation, perception, performance, persuasion, sleightOfHand, stealth];
         this.features = ["Expertise", "Sneak Attack", "Thieves' Cant"];
     }
 

@@ -10,13 +10,13 @@ class Paladin extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: true,
             shields: true
         }
-        this.setSimpleWeaponsProficiency();
-        this.setMartialWeaponsProficiency();
+        this.simpleWeaponsProficiency();
+        this.martialWeaponsProficiency();
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.setSaves(wisdom, charisma);
+        this.saves = [wisdom, charisma];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(athletics, insight, intimidation, medicine, persuasion, religion);
+        this.possibleSkills = [athletics, insight, intimidation, medicine, persuasion, religion];
         this.features = ["Divine sense", "Lay on hands"];
     }
 

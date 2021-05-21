@@ -1,4 +1,4 @@
-class Monk extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Monk extends Character {
     constructor() {
         super();
         this.class = CharacterClasses.MONK;
@@ -10,21 +10,20 @@ class Monk extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: false
         }
-        this.setSimpleWeaponsProficiency();
-        this.setWeaponsProficiency("shortsword")
+        this.simpleWeaponsProficiency();
+        this.weaponsProficiency = ["shortsword"];
         this.maxToolProficiencies = 1;
-        this.setPossibleTools(alchemist, brewer, calligrapher, carpenter, cartographer, cobbler, cook, glassblower, jewler, leatherworker, mason, painter, potter, smith, tinker, weaver, woodcarver, bagpipes, drum, dulcimer, flute, horn, lute, lyre, pan, shawm, viol);
+        this.possibleTools = [alchemist, brewer, calligrapher, carpenter, cartographer, cobbler, cook, glassblower, jewler, leatherworker, mason, painter, potter, smith, tinker, weaver, woodcarver, bagpipes, drum, dulcimer, flute, horn, lute, lyre, pan, shawm, viol];
         this.maxLanguageProficiencies = 0;
-        this.setSaves(dexterity, strength);
+        this.saves = [dexterity, strength];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(acrobatics, athletics, history, insight, religion, stealth);
+        this.possibleSkills = [acrobatics, athletics, history, insight, religion, stealth];
         this.features = ["Unarmored Defense", "Martial Arts"];
-        this.meleeBonusChoice;
     }
 
     get AC() { return 10 + wisdom.mod + dexterity.mod }
 
     get meleeAttackBonus() {
-        // calc with melleBonusChoice.
+        // calc with melleBonusChoice. CONTROLLER TODO
     }
 }

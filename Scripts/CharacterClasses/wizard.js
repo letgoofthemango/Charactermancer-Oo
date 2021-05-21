@@ -1,7 +1,7 @@
-class Wizard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Wizard extends Character {
     constructor() {
         super();
-        this.class = CharacterClasses.Wizard;
+        this.class = CharacterClasses.WIZARD;
         this.hitDice = 6;
         this._armorProficiencies = {
             none: true,
@@ -10,14 +10,14 @@ class Wizard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: false
         }
-        this.setWeaponsProficiency("dagger", "dart", "sling", "quarterstaff", "light crossbow")
+        this.weaponsProficiency=["dagger", "dart", "sling", "quarterstaff", "light crossbow"];
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.setSaves(intelligence, wisdom);
+        this.saves=[intelligence, wisdom];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(arcana, history, insight, investigation, medicine, religion);
-        this.cantripSpells = 3;
-        this.firstLevelSpells = 6;
+        this.possibleSkills=[arcana, history, insight, investigation, medicine, religion];
+        this.cantripSpellsToChoose = 3;
+        this.firstLevelSpellsToChoose = 6;
         this.firstLevelSpellSlots = 2;
         this.features = ["Arcane Recovery", "Spellcasting"];
     }
@@ -30,3 +30,4 @@ class Wizard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         return getNumber(2 + intelligence.mod)
     }
 }
+character = new Wizard();

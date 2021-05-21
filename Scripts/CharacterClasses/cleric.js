@@ -1,4 +1,4 @@
-class Cleric extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Cleric extends Character {
     constructor() {
         super();
         this.class = CharacterClasses.CLERIC;
@@ -10,17 +10,17 @@ class Cleric extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: true
         }
-        this.setSimpleWeaponsProficiency();
+        this.simpleWeaponsProficiency();
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.setSaves(wisdom, charisma);
+        this.saves = [wisdom, charisma];
         this.maxSkillsProficiencies = 2;
-        this.setPossibleSkills(history, insight, medicine, persuasion, religion);
-        this.cantripSpells = 2;
-        this.firstLevelSpells = 4;
+        this.possibleSkills = [history, insight, medicine, persuasion, religion];
+        this.cantripSpellsToChoose = 2;
+        this.firstLevelSpellsToChoose = 4;
         this.firstLevelSpellSlots = 2;
         this.characterFeatures = ["Divine Domain", "Spellcasting"];
-        this.getfirstLevelSpells().forEach(spell => setSpellsKnown(spell.name));
+        this.firstLevelSpells().forEach(spell => setSpellsKnown(spell.name));
     }
 
     get AC() {

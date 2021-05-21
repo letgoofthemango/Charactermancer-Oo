@@ -1,4 +1,4 @@
-class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Bard extends Character {
     constructor() {
         super();
         this.class = CharacterClasses.BARD;
@@ -10,16 +10,16 @@ class Bard extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             heavy: false,
             shields: false
         }
-        this.setSimpleWeaponsProficiency();
-        this.setWeaponsProficiency("hand crossbow", "longsword", "rapier", "shortsword")
+        this.simpleWeaponsProficiency();
+        this.weaponsProficiency = ["hand crossbow", "longsword", "rapier", "shortsword"];
         this.maxToolProficiencies = 3;
-        this.setPossibleTools(bagpipes, drum, dulcimer, flute, horn, lute, lyre, pan, shawm, viol);
+        this.possibleTools = (bagpipes, drum, dulcimer, flute, horn, lute, lyre, pan, shawm, viol);
         this.maxLanguageProficiencies = 0;
-        this.setSaves(dexterity, charisma);
+        this.saves = [dexterity, charisma];
         this.maxSkillsProficiencies = 3;
-        this.setPossibleSkills(acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival);
-        this.cantripSpells = 2;
-        this.firstLevelSpells = 4;
+        this.possibleSkills = [acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival];
+        this.cantripSpellsToChoose = 2;
+        this.firstLevelSpellsToChoose = 4;
         this.firstLevelSpellSlots = 2;
         this.features = ["Bardic Inspiration", "Spellcasting"];
     }
