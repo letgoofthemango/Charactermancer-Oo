@@ -1,4 +1,4 @@
-const AbilityType = {
+export const AbilityType = {
     STRENGTH: "Strength",
     DEXTERITY: "Dexterity",
     CONSTITUTION: "Constitution",
@@ -7,7 +7,7 @@ const AbilityType = {
     CHARISMA: "Charisma"
 };
 
-class AbilityScore {
+export class AbilityScore {
     constructor(name, value) {
         this.name = name;
         this.value = value;
@@ -27,9 +27,7 @@ class AbilityScore {
     }
 }
 
-// ignore rest
-
-let strength = new AbilityScore(AbilityType.STRENGTH, 8),
+export let strength = new AbilityScore(AbilityType.STRENGTH, 8),
     dexterity = new AbilityScore(AbilityType.DEXTERITY, 8),
     constitution = new AbilityScore(AbilityType.CONSTITUTION, 8),
     intelligence = new AbilityScore(AbilityType.INTELLIGENCE, 8),

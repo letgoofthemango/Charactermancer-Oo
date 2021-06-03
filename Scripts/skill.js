@@ -1,4 +1,6 @@
-const Skillnames = {
+import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "./abilityScore.js";
+
+export const Skillnames = {
     ACROBATICS: "Acrobatics",
     ANIMALHANDLING: "Animal handling",
     ARCANA: "Arcana",
@@ -18,7 +20,7 @@ const Skillnames = {
     STEALTH: "Stealth",
     SURVIVAL: "Survival"
 };
-const SkillLevel = {
+export const SkillLevel = {
     UNSKILLED: 0,
     HALFPROFICIENT: 1,
     PROFICIENT: 2,
@@ -40,7 +42,7 @@ class Skill {
 
 }
 
-let acrobatics = new Skill(Skillnames.ACROBATICS, dexterity),
+export let acrobatics = new Skill(Skillnames.ACROBATICS, dexterity),
     animalHandling = new Skill(Skillnames.ANIMALHANDLING, wisdom),
     arcana = new Skill(Skillnames.ARCANA, intelligence),
     athletics = new Skill(Skillnames.ATHLETICS, strength),
@@ -78,28 +80,7 @@ class SkillsComponent {
     }
 }
 
-// function resetSkillProficiencies() {
-//     acrobatics.proficiency = SkillLevel.UNSKILLED;
-//     animalHandling.proficiency = SkillLevel.UNSKILLED;
-//     arcana.proficiency = SkillLevel.UNSKILLED;
-//     athletics.proficiency = SkillLevel.UNSKILLED;
-//     deception.proficiency = SkillLevel.UNSKILLED;
-//     history.proficiency = SkillLevel.UNSKILLED;
-//     insight.proficiency = SkillLevel.UNSKILLED;
-//     intimidation.proficiency = SkillLevel.UNSKILLED;
-//     investigation.proficiency = SkillLevel.UNSKILLED;
-//     medicine.proficiency = SkillLevel.UNSKILLED;
-//     nature.proficiency = SkillLevel.UNSKILLED;
-//     perception.proficiency = SkillLevel.UNSKILLED;
-//     performance.proficiency = SkillLevel.UNSKILLED;
-//     persuasion.proficiency = SkillLevel.UNSKILLED;
-//     religion.proficiency = SkillLevel.UNSKILLED;
-//     sleightOfHand.proficiency = SkillLevel.UNSKILLED;
-//     stealth.proficiency = SkillLevel.UNSKILLED;
-//     survival.proficiency = SkillLevel.UNSKILLED;
-// }
-
-function resetPossibleSkills() {
+export function resetPossibleSkills() {
     acrobatics.possibleSkill = false;
     animalHandling.possibleSkill = false;
     arcana.possibleSkill = false;
@@ -120,7 +101,7 @@ function resetPossibleSkills() {
     survival.possibleSkill = false;
 }
 
-function resetSkillProficiencies() {
+export function resetSkillProficiencies() {
     acrobatics.proficiency = SkillLevel.UNSKILLED;
     animalHandling.proficiency = SkillLevel.UNSKILLED;
     arcana.proficiency = SkillLevel.UNSKILLED;

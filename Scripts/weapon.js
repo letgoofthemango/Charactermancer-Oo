@@ -1,3 +1,5 @@
+import { InventoryItem, ItemType } from "./item.js";
+
 class RangedWeapon extends InventoryItem {
     constructor(name, type, copper, silver, gold, weight, description, damage, damageType, simple, martial, light, heavy, twoHanded, range, special, finesse, ammunition, loading, thrown) {
         super(name, type, copper, silver, gold, weight, description);
@@ -38,7 +40,8 @@ class MeleeWeapon extends InventoryItem {
         this.proficiency = false
     }
 }
-let weapons = [
+
+export let weapons = [
     new MeleeWeapon("club", ItemType.MELEE, 0, 1, 0, 2, "A club made of wood.", "1d4", "bludgeoning", true, false, true, false, false, 5, null, false, false, false, false, false, null),
     new MeleeWeapon("dagger", ItemType.MELEE, 0, 0, 2, 1, "A simple metal dagger.", "1d4", "piercing", true, false, true, false, false, 5, null, true, false, true, "20/60", false, null),
     new MeleeWeapon("greatclub", ItemType.MELEE, 0, 2, 0, 10, "A large club made of wood.", "1d8", "bludgeoning", true, false, false, false, true, 5, null, false, false, false, false, false, null),
@@ -77,7 +80,7 @@ let weapons = [
     new RangedWeapon("longbow", ItemType.RANGED, 0, 0, 50, 2, "A wooden longbow", "1d8", "piercing", false, true, false, true, true, "150/600", null, false, true, false, false),
     new RangedWeapon("net", ItemType.RANGED, 0, 0, 1, 3, "A sturdy net.", null, null, false, true, false, false, false, "5/15", "A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net. When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.", false, false, false, true),
 ]
-function getWeapon(weaponName) {
+export function getWeapon(weaponName) {
     for (const weapon of weapons) {
         if (weapon.name === weaponName) {
             return weapon

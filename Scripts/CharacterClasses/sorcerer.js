@@ -1,4 +1,13 @@
-class Sorcerer extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+import { Character,CharacterClasses } from "../character.js";
+import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "../abilityScore.js";
+import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "../skill.js";
+import { ToolName, alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigators, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver } from "../tool";
+import { LanguageNames, abyssal, auran, aquan, celestial, common, deepspeech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, halfling, ignan, infernal, orc, primordial, sylvan, terran, thievesCant, undercommon } from "../language.js";
+import { spells, getSpell, setSpellsKnown, setSpellsPrepared, sortSpells } from "../spell.js";
+import { features, getBackgroundFeatures, getCharaterFeatures, getFeature, getRaceFeatures } from "../characterFeature.js";
+import { weapons, getWeapon } from "./weapon.js";
+
+export class Sorcerer extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
         this.class = CharacterClasses.SORCERER;
@@ -32,10 +41,10 @@ class Sorcerer extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }
 
-class DraconicSorcerer extends Sorcerer {
+export class DraconicSorcerer extends Sorcerer {
     constructor() {
         super()
-        this.subClass = "(Draconic origin)";
+        this.subClass = "(Draconic Origin)";
         draconic.proficiency = true;
         this.dragonAncestor; // has to be implemented(in the view???) TODO.
         this.characterFeatures = ["Sorcerous Origin: Draconic", "Draconic Resilience", "Spellcasting"];
@@ -49,10 +58,10 @@ class DraconicSorcerer extends Sorcerer {
 
 
 
-class WildSorcerer extends Sorcerer {
+export class WildSorcerer extends Sorcerer {
     constructor() {
         super()
-        this.subClass = "(Wild Magic origin)";
+        this.subClass = "(Wild Magic Origin)";
         this._armorProficiencies = {
             none: true,
             light: true,

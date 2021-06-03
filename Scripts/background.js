@@ -1,3 +1,5 @@
+import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "./skill.js";
+
 const BackgroundNames = {
     ACOYLTE: "Acolyte",
     CHARLATAN: "Charlatan",
@@ -6,7 +8,7 @@ const BackgroundNames = {
     ENTERTAINER: "Entertainer",
     GLADIATOR: "Entertainer (Gladiator)",
     FOLKHERO: "Folk hero",
-    GUILDARTISAM: "Guild artisan",
+    GUILDARTISAN: "Guild artisan",
     GUILDMERCHANT: "Guild merchant",
     HERMIT: "Hermit",
     NOBLE: "Noble",
@@ -37,7 +39,7 @@ class Background {
     }
 }
 
-class Acolyte extends Background {
+export class Acolyte extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.ACOYLTE;
@@ -49,7 +51,7 @@ class Acolyte extends Background {
     }
 }
 
-class Charlatan extends Background {
+export class Charlatan extends Background {
     constructor() {
         super(); this.name = BackgroundNames.CHARLATAN;
         this.setSkillProficiencies(deception, sleightOfHand);
@@ -62,7 +64,7 @@ class Charlatan extends Background {
     }
 }
 
-class Criminal extends Background {
+export class Criminal extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.CRIMINAL;
@@ -75,7 +77,7 @@ class Criminal extends Background {
         this.numberOfToolsToChoose = 1;
     }
 }
-class Spy extends Background {
+export class Spy extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.SPY;
@@ -88,7 +90,7 @@ class Spy extends Background {
         this.numberOfToolsToChoose = 1;
     }
 }
-class Entertainer extends Background {
+export class Entertainer extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.ENTERTAINER;
@@ -102,7 +104,7 @@ class Entertainer extends Background {
         this.inventory = ["costume clothes", "pouch"];
     }
 }
-class Gladiator extends Background {
+export class Gladiator extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.GLADIATOR;
@@ -117,7 +119,7 @@ class Gladiator extends Background {
     }
 }
 
-class FolkHero extends Background {
+export class FolkHero extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.FOLKHERO;
@@ -128,7 +130,7 @@ class FolkHero extends Background {
         this.inventory = ["", "", "", "", "", "", "", "pouch"]; //give it the same tool into inventory as choosing the proficiency!!!
     }
 }
-class GuildArtisan extends Background {
+export class GuildArtisan extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.GUILDARTISAM;
@@ -140,7 +142,7 @@ class GuildArtisan extends Background {
         this.inventory = ["letter of introduction from your guild", "set of traveler's clothes", "pouch", "", "", "", "", ""]; //give it the same tool into inventory as choosing the proficiency!!!
     }
 }
-class GuildMerchant extends Background {
+export class GuildMerchant extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.GUILDMERCHANT;
@@ -153,7 +155,7 @@ class GuildMerchant extends Background {
         this.inventory = ["letter of introduction from your guild", "set of traveler's clothes", "pouch", "", "", "", "", ""]; //give it the same tool into inventory as choosing the proficiency!!!
     }
 }
-class Hermit extends Background {
+export class Hermit extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.HERMIT;
@@ -165,7 +167,7 @@ class Hermit extends Background {
         this.inventory = ["scroll case stuffed full of notes from your studies or prayers", "winter blanket", "set of common clothes", herbalism, "pouch"];
     }
 }
-class Noble extends Background {
+export class Noble extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.NOBLE;
@@ -177,7 +179,7 @@ class Noble extends Background {
         this.inventory = ["set of fine clothes", "signet ring", "scroll of pedigree", "pouch"];
     }
 }
-class Knight extends Background {
+export class Knight extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.KNIGHT;
@@ -189,7 +191,7 @@ class Knight extends Background {
         this.inventory = ["set of fine clothes", "signet ring", "scroll of pedigree", "pouch"];
     }
 }
-class Outlander extends Background {
+export class Outlander extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.OUTLANDER;
@@ -201,7 +203,7 @@ class Outlander extends Background {
         this.inventory = ["staff", "hunting trap", "trophy from an animal you killed", "set of traveler's clothes", "pouch"];
     }
 }
-class Sage extends Background {
+export class Sage extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.SAGE;
@@ -212,7 +214,7 @@ class Sage extends Background {
         this.inventory = ["bottle of black ink", "quill", "small knife", "letter from a dead colleague posing a question you have not yet been able to answer", "set of common clothes", "pouch"];
     }
 }
-class Sailor extends Background {
+export class Sailor extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.SAILOR;
@@ -224,7 +226,7 @@ class Sailor extends Background {
         this.inventory = ["belaying pin (club)", "silk rope (50 feet)", "lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5)", "set of common clothes", "", "", "", "pouch"];
     }
 }
-class Pirate extends Background {
+export class Pirate extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.PIRATE;
@@ -236,7 +238,7 @@ class Pirate extends Background {
         this.inventory = ["belaying pin (club)", "silk rope (50 feet)", "lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5)", "set of common clothes", "", "", "", "pouch"];
     }
 }
-class Soldier extends Background {
+export class Soldier extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.SOLDIER;
@@ -248,7 +250,7 @@ class Soldier extends Background {
         this.inventory = ["insignia of rank", "trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner)", "bone dice set or playing card set", "set of common clothes", "pouch"];
     }
 }
-class Urchin extends Background {
+export class Urchin extends Background {
     constructor() {
         super();
         this.name = BackgroundNames.URCHIN;

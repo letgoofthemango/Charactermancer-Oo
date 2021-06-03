@@ -26,7 +26,7 @@ class Spell {
     }
 }
 
-let spells = [
+let spellDictionary = [
     {
         name: "Abi-Dalzim's Horrid Wilting",
         source: "XGE",
@@ -5684,23 +5684,24 @@ let spells = [
         description: "You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw.An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such creatures can be evasive in its answers as long as it remains within the boundaries of the truth.",
         atHigherLevels: null
     },
-]
-spells = spells.map(spell => new Spell(spell.name, spell.level, spell.school, spell.castingTime, spell.range, spell.components, spell.duration, spell.description, spell.classes, spell.atHigherLevels));
+];
 
-function getSpell(spellName) {
+export const spells = spellDictionary.map(spell => new Spell(spell.name, spell.level, spell.school, spell.castingTime, spell.range, spell.components, spell.duration, spell.description, spell.classes, spell.atHigherLevels));
+
+export function getSpell(spellName) {
     for (const spell of spells) {
         if (spell.name === spellName) {
             return spell
         }
     }
 }
-function setSpellsKnown(...args) {
+export function setSpellsKnown(...args) {
     args.forEach(spell => getSpell(spell).known = true)
 }
-function setSpellsPrepared(...args) {
+export function setSpellsPrepared(...args) {
     args.forEach(spell => getSpell(spell).prepared = true)
 }
-function sortSpells(a, b) {
+export function sortSpells(a, b) {
     if (a.name < b.name) {
         return -1;
     }

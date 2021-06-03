@@ -1,4 +1,6 @@
-const ArmorType = {
+import { InventoryItem, ItemType } from "./item.js";
+
+export const ArmorType = {
     NONE: "none",
     LIGHT: "light",
     MEDIUM: "medium",
@@ -14,7 +16,7 @@ class Armor extends InventoryItem {
             this.armorType = armorType
     }
 }
-let armors = [
+export let armors = [
     new Armor("padded armor", ItemType.ARMOR, 0, 0, 5, 8, "Padded armor consists of quilted layers of cloth and batting.", 0, true, 11, ArmorType.LIGHT),
     new Armor("leather armor", ItemType.ARMOR, 0, 0, 10, 10, "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.", 0, false, 11, ArmorType.LIGHT),
     new Armor("studded leather armor", ItemType.ARMOR, 0, 0, 45, 13, "Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.", 0, false, 12, ArmorType.LIGHT),
@@ -29,7 +31,7 @@ let armors = [
     new Armor("plate armor", ItemType.ARMOR, 0, 0, 1500, 65, "Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body. If the wearer has a Strength score lower than 15, their speed is reduced by 10 feet.", 15, true, 18, ArmorType.HEAVY),
     new Armor("shield", ItemType.ARMOR, 0, 0, 10, 6, "A shield is made from wood or metal and is carried in one hand. Wielding a shield increases your Armor Class by 2. You can benefit from only one shield at a time.", 0, false, +2, ArmorType.SHIELD),
 ]
-function getArmor(armorName) {
+export function getArmor(armorName) {
     for (const armor of armors) {
         if (armor.name === armorName) {
             return armor

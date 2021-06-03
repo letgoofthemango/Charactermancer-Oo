@@ -1,3 +1,9 @@
+3. TODO suchen
+2. features überall einfügen!
+
+
+
+
 row für dreiteilung der Seite links outline.
 
 Go back Button!
@@ -16,8 +22,3 @@ popover für skills etc machen!
 
 
 add a "character features beyond first level" demarcation after 1st level features. Make it collapsed standard.
-
-test draconic sorc hitpoints getter!!
-
-3. TODO suchen
-2. features fertigmachen!

@@ -1,3 +1,44 @@
+import { InventoryItem, ItemType } from "./item.js";
+export const ToolName = {
+    ALCHEMIST: "alchemist's supplies",
+    BREWER: "brewer's supplies",
+    CALLIGRAPHER: "calligrapher's supplies",
+    CARPENTER: "carpenter's tools",
+    CARTOGRAPHER: "cartographer's tools",
+    COBBLER: "cobbler's tools",
+    COOK: "cook's utensils",
+    GLASBLOWER: "glassblower's tools",
+    JEWLER: "jeweler's tools",
+    LEATHERWORKER: "leatherworker's tools",
+    MASON: "mason's tools",
+    PAINTER: "painter's supplies",
+    POTTER: "potter's tools",
+    SMITH: "smith's tools",
+    TINKER: "tinker's tools",
+    WEAVER: "weaver's tools",
+    WOODCARVER: "woodcarver's tools",
+    DICE: "dice set",
+    DRAGONCHESS: "Dragonchess set",
+    CARDS: "playing card set",
+    DRAGONANTE: "Three-Dragon Ante set",
+    BAGPIPES: "bagpipes",
+    DRUM: "drum",
+    DULCIMER: "dulcimer",
+    FLUTE: "flute",
+    LUTE: "lute",
+    LYRE: "lyre",
+    HORN: "horn",
+    PAN: "pan flute",
+    SHAWM: "shawm",
+    VIOL: "viol",
+    DISGUISE: "disguise kit",
+    FORGERY: "forgery kit",
+    HERBALISM: "herbalism kit",
+    NAVIGATOR: "navigator's tools",
+    POISONER: "poisoner's kit",
+    THIEVES: "thieves' tools",
+    VEHICLES: "vehicles (land or sea)"
+}
 class Tool extends InventoryItem {
     constructor(name, type, copper, silver, gold, weight, description) {
         super(name, type, copper, silver, gold, weight, description)
@@ -6,7 +47,8 @@ class Tool extends InventoryItem {
     }
 
 }
-let alchemist = new Tool(ToolName.ALCHEMIST, ItemType.ARTISAN, 0, 0, 50, 8, "Alchemist's supplies enable a character to produce useful concoctions, such as acid or alchemist's fire. Components: Alchemist's supplies include two glass beakers, a metal frame to hold a beaker in place over an open flame, a glass stirring rod, a small mortar and pestle, and a pouch of common alchemical ingredients, including salt, powdered iron, and purified water."),
+
+export let alchemist = new Tool(ToolName.ALCHEMIST, ItemType.ARTISAN, 0, 0, 50, 8, "Alchemist's supplies enable a character to produce useful concoctions, such as acid or alchemist's fire. Components: Alchemist's supplies include two glass beakers, a metal frame to hold a beaker in place over an open flame, a glass stirring rod, a small mortar and pestle, and a pouch of common alchemical ingredients, including salt, powdered iron, and purified water."),
     bagpipes = new Tool(ToolName.BAGPIPES, ItemType.INSTRUMENT, 0, 0, 30, 6, "Proficiency with a musical instrument indicates you are familiar with the techniques used to play it. You also have knowledge of some songs commonly performed with that instrument."),
     brewer = new Tool(ToolName.BREWER, ItemType.ARTISAN, 0, 0, 20, 9, "Brewing is the art of producing beer. Not only does beer serve as an alcoholic beverage, but the process of brewing purifies water. Crafting beer takes weeks of fermentation, but only a few hours of work. Components: Brewer's supplies include a large glass jug, a quantity of hops, a siphon, and several feet of tubing."),
     calligrapher = new Tool(ToolName.CALLIGRAPHER, ItemType.ARTISAN, 0, 0, 10, 5, "Calligraphy treats writing as a delicate, beautiful art. Calligraphers produce text that is pleasing to the eye, using a style that is difficult to forge. Their supplies also give them some ability to examine scripts and determine if they are legitimate, since a calligrapher's training involves long hours of studying writing and attempting to replicate its style and design. Components: Calligrapher's supplies include ink, a dozen sheets of parchment, and three quills."),

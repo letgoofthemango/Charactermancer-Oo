@@ -1,3 +1,6 @@
+import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "./abilityScore.js";
+import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "./skill.js";
+
 const CharacterRaces = {
     DRAGONBORN: "Dragonborn",
     HILLDWARF: "Dwarf (Hill)",
@@ -18,13 +21,6 @@ const CharacterRaces = {
 const CharacterSizes = {
     SMALL: "Small",
     MEDIUM: "Medium"
-}
-
-
-class RaceBonus {
-    constructor(abilityName, bonus, extraBonus = false) {
-        // TODO
-    }
 }
 
 class Race {
@@ -66,7 +62,8 @@ class Race {
     }
 }
 
-class Dragonborn extends Race {
+
+export class Dragonborn extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.DRAGONBORN;
@@ -79,7 +76,7 @@ class Dragonborn extends Race {
         draconic.proficiency = true;
     }
 }
-class HillDwarf extends Race {
+export class HillDwarf extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.HILLDWARF;
@@ -105,7 +102,7 @@ class HillDwarf extends Race {
     }
 }
 
-class MountainDwarf extends Race {
+export class MountainDwarf extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.MOUNTAINDWARF;
@@ -136,7 +133,7 @@ class MountainDwarf extends Race {
         }
     }
 }
-class Drow extends Race {
+export class Drow extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.DROW;
@@ -160,7 +157,7 @@ class Drow extends Race {
     }
 }
 
-class HighElf extends Race {
+export class HighElf extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.HIGHELF;
@@ -182,7 +179,7 @@ class HighElf extends Race {
         getWeapon("longbow").proficiency = true;
     }
 }
-class WoodElf extends Race {
+export class WoodElf extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.WOODELF;
@@ -204,7 +201,7 @@ class WoodElf extends Race {
         getWeapon("longbow").proficiency = true;
     }
 }
-class ForrestGnome extends Race {
+export class ForrestGnome extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.ABC;
@@ -219,7 +216,7 @@ class ForrestGnome extends Race {
         this.features = ["Darkvision", "Gnome Cunning", "Natural Illusionist", "Speak with Small Beasts"];
     }
 }
-class RockGnome extends Race {
+export class RockGnome extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.ROCKGNOME;
@@ -234,7 +231,7 @@ class RockGnome extends Race {
         this.features = ["Darkvision", "Gnome Cunning", "Artificer's Lore", "Tinker"];
     }
 }
-class HalfElf extends Race {
+export class HalfElf extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.HALFELF;
@@ -249,7 +246,7 @@ class HalfElf extends Race {
         this.features = ["Darkvision", "Fey Ancestry", "Skill Versatility"];
     }
 }
-class HalfOrc extends Race {
+export class HalfOrc extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.HALFORC;
@@ -264,7 +261,7 @@ class HalfOrc extends Race {
         this.features = ["Darkvision", "Menacing", "Relentless Endurance", "Savage Attacks"];
     }
 }
-class LightfoodHalfling extends Race {
+export class LightfoodHalfling extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.LIGHTFOOTHALFLING;
@@ -278,7 +275,7 @@ class LightfoodHalfling extends Race {
         this.features = ["Lucky", "Brave", "Halfling Nimbleness", "Naturally Stealthy"];
     }
 }
-class StoutfoodHalfling extends Race {
+export class StoutfoodHalfling extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.STOUTHALFLING;
@@ -292,7 +289,7 @@ class StoutfoodHalfling extends Race {
         this.features = ["Lucky", "Brave", "Halfling Nimbleness", "Stout Resilience"];
     }
 }
-class Human extends Race {
+export class Human extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.HUMAN;
@@ -307,7 +304,7 @@ class Human extends Race {
         this.speed = 30;
     }
 }
-class Tiefling extends Race {
+export class Tiefling extends Race {
     constructor() {
         super();
         this.name = CharacterRaces.TIEFLING;

@@ -1,4 +1,12 @@
-class Cleric extends Character {
+import { Character,CharacterClasses } from "../character.js";
+import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "../abilityScore.js";
+import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "../skill.js";
+import { ToolName, alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigators, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver } from "../tool";
+import { LanguageNames, abyssal, auran, aquan, celestial, common, deepspeech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, halfling, ignan, infernal, orc, primordial, sylvan, terran, thievesCant, undercommon } from "../language.js";
+import { spells, getSpell, setSpellsKnown, setSpellsPrepared, sortSpells } from "../spell.js";
+import { features, getBackgroundFeatures, getCharaterFeatures, getFeature, getRaceFeatures } from "../characterFeature.js";
+import { weapons, getWeapon } from "./weapon.js";
+export class Cleric extends Character {
     constructor() {
         super();
         this.class = CharacterClasses.CLERIC;
@@ -53,7 +61,7 @@ class Cleric extends Character {
     }
 }
 
-class KnowledgeCleric extends Cleric {
+export class KnowledgeCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Knowledge domain)";
@@ -64,7 +72,7 @@ class KnowledgeCleric extends Cleric {
 }
 
 
-class LifeCleric extends Cleric {
+export class LifeCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Life domain)";
@@ -105,7 +113,7 @@ class LifeCleric extends Cleric {
 }
 
 
-class LightCleric extends Cleric {
+export class LightCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Light domain)";
@@ -115,7 +123,7 @@ class LightCleric extends Cleric {
     }
 }
 
-class NatureCleric extends Cleric {
+export class NatureCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Nature domain)";
@@ -157,7 +165,7 @@ class NatureCleric extends Cleric {
 }
 
 
-class TempestCleric extends Cleric {
+export class TempestCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Tempest domain)";
@@ -200,7 +208,7 @@ class TempestCleric extends Cleric {
 }
 
 
-class TrickeryCleric extends Cleric {
+export class TrickeryCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(Trickery domain)";
@@ -210,7 +218,7 @@ class TrickeryCleric extends Cleric {
     }
 }
 
-class WarCleric extends Cleric {
+export class WarCleric extends Cleric {
     constructor() {
         super()
         this.subClass = "(War domain)";

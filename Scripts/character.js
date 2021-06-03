@@ -1,4 +1,13 @@
-const CharacterClasses = {
+import { Character,CharacterClasses } from "../character.js";
+import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "../abilityScore.js";
+import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "../skill.js";
+import { ToolName, alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigators, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver } from "../tool";
+import { LanguageNames, abyssal, auran, aquan, celestial, common, deepspeech, draconic, druidic, dwarvish, elvish, giant, gnomish, goblin, halfling, ignan, infernal, orc, primordial, sylvan, terran, thievesCant, undercommon } from "../language.js";
+import { spells, getSpell, setSpellsKnown, setSpellsPrepared, sortSpells } from "../spell.js";
+import { features, getBackgroundFeatures, getCharaterFeatures, getFeature, getRaceFeatures } from "../characterFeature.js";
+import { weapons, getWeapon } from "./weapon.js";
+
+export const CharacterClasses = {
     BARBARIAN: "Barbarian",
     BARD: "Bard",
     CLERIC: "Cleric",
@@ -13,7 +22,7 @@ const CharacterClasses = {
     WIZARD: "Wizard"
 }
 
-class Character {
+export class Character {
     constructor() {
         this.name;
         this.playerName;
@@ -38,8 +47,6 @@ class Character {
         this.maxToolProficiencies;
         this.maxLanguageProficiencies;
         this.attacks;
-        // this.meleeAttackBonus;
-        // this.rangedAttackBonus = dexterity.mod;
         this.meleeBonusChoice;
         this.equipment;
         this._cantrips;
@@ -117,7 +124,7 @@ class Character {
         this.abilities.forEach(element => {
             element.value = 8;
         });
-    }
+    } 0
     resetSavingthrowProficiencies() {
         this.abilities.forEach(element => {
             element.proficiency = false;
@@ -125,13 +132,6 @@ class Character {
     }
     set saves(args) {
         args.forEach(save => save.proficiency = true)
-    }
-    getAbility(abilityName) {
-        for (const ability of this.abilities) {
-            if (ability.name === abilityName) {
-                return ability
-            }
-        }
     }
     // ----------------------------------------------------SKILLS-------------------------------------------------------------------------------
     set SkillProficiencies(args) {
@@ -163,7 +163,7 @@ class Character {
     set maxTools(number) {
         this.numberOfToolsToChoose = number;
     }
-    set possibleTools(args) { // TODO, does a setter work with ...args
+    set possibleTools(args) {
         args.forEach(tool => tool.possibleTool = true)
     }
 
@@ -193,14 +193,14 @@ class Character {
     resetWeaponsProficiencies() {
         weapons.forEach(weapon => weapon.proficiency = false);
     }
-    simpleWeaponsProficiency() {
+    simpleWeaponsProficiency() { //TODO add init to all instances
         weapons.forEach(element => {
             if (element.simple) {
                 element.proficiency = true;
             }
         });
     }
-    martialWeaponsProficiency() {
+    martialWeaponsProficiency() {//TODO add init to all instances
         weapons.forEach(element => {
             if (element.martial) {
                 element.proficiency = true;
@@ -217,6 +217,6 @@ class Character {
 }
 let character;
 
-function fullCharacterReset() {
+export function fullCharacterReset() {
     //NEEDS CODE, HOW TO DEAL WITH GLOBAL AND LOCAL FUNCTIONS???
 }
