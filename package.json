@@ -1,0 +1,22 @@
+{
+  "name": "charactermancer-oo",
+  "version": "1.0.0",
+  "description": "Charactermancer object-oriented edition",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/letgoofthemango/Charactermancer-Oo.git"
+  },
+  "author": "letgoofthemango",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/letgoofthemango/Charactermancer-Oo/issues"
+  },
+  "homepage": "https://github.com/letgoofthemango/Charactermancer-Oo#readme",
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
+}
