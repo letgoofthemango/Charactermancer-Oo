@@ -1,4 +1,4 @@
-import { Character,CharacterClasses } from "../character.js";
+import { PlayerCharacter,CharacterClassNames } from "../character.js";
 import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "../abilityScore.js";
 import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "../skill.js";
 import { ToolName, alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigators, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver } from "../tool";
@@ -7,10 +7,10 @@ import { spells, getSpell, setSpellsKnown, setSpellsPrepared, sortSpells } from 
 import { features, getBackgroundFeatures, getCharaterFeatures, getFeature, getRaceFeatures } from "../characterFeature.js";
 import { weapons, getWeapon } from "./weapon.js";
 
-export class Sorcerer extends Character { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+export class Sorcerer extends PlayerCharacter { //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     constructor() {
         super();
-        this.class = CharacterClasses.SORCERER;
+        this.class = CharacterClassNames.SORCERER;
         this.hitDice = 6;
         this._armorProficiencies = {
             none: true,

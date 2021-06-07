@@ -1,4 +1,4 @@
-import { Character,CharacterClasses } from "../character.js";
+/* eslint-disable no-unused-vars */
 import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "../abilityScore.js";
 import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "../skill.js";
 import { ToolName, alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigators, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver } from "../tool";
@@ -6,8 +6,9 @@ import { LanguageNames, abyssal, auran, aquan, celestial, common, deepspeech, dr
 import { spells, getSpell, setSpellsKnown, setSpellsPrepared, sortSpells } from "../spell.js";
 import { features, getBackgroundFeatures, getCharaterFeatures, getFeature, getRaceFeatures } from "../characterFeature.js";
 import { weapons, getWeapon } from "./weapon.js";
+import { ArmorType, armors,getArmor} from "./armor.js";
 
-export const CharacterClasses = {
+export const CharacterClassNames = {
     BARBARIAN: "Barbarian",
     BARD: "Bard",
     CLERIC: "Cleric",
@@ -22,7 +23,7 @@ export const CharacterClasses = {
     WIZARD: "Wizard"
 }
 
-export class Character {
+export class PlayerCharacter {
     constructor() {
         this.name;
         this.playerName;
@@ -124,7 +125,7 @@ export class Character {
         this.abilities.forEach(element => {
             element.value = 8;
         });
-    } 0
+    }
     resetSavingthrowProficiencies() {
         this.abilities.forEach(element => {
             element.proficiency = false;

@@ -1,4 +1,5 @@
-import { Character,CharacterClasses } from "../character.js";
+/* eslint-disable no-unused-vars */
+import { PlayerCharacter,CharacterClassNames } from "../character.js";
 import { AbilityType, AbilityScore, strength, dexterity, constitution, intelligence, wisdom, charisma } from "../abilityScore.js";
 import { Skillnames, SkillLevel, acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, resetPossibleSkills, resetSkillProficiencies } from "../skill.js";
 import { ToolName, alchemist, bagpipes, brewer, calligrapher, cards, carpenter, cartographer, cobbler, cook, dice, disguise, dragonAnte, dragonchess, drum, dulcimer, flute, forgery, glassblower, herbalism, horn, jewler, leatherworker, lute, lyre, mason, navigators, painter, pan, poisoner, potter, shawm, smith, thieves, tinker, vehicles, viol, weaver, woodcarver } from "../tool";
@@ -6,11 +7,12 @@ import { LanguageNames, abyssal, auran, aquan, celestial, common, deepspeech, dr
 import { spells, getSpell, setSpellsKnown, setSpellsPrepared, sortSpells } from "../spell.js";
 import { features, getBackgroundFeatures, getCharaterFeatures, getFeature, getRaceFeatures } from "../characterFeature.js";
 import { weapons, getWeapon } from "./weapon.js";
+import { ArmorType, armors,getArmor} from "./armor.js";
 
-export class Barbarian extends Character {
+export class Barbarian extends PlayerCharacter {
     constructor() {
         super();
-        this.class= CharacterClasses.BARBARIAN;
+        this.class = CharacterClassNames.BARBARIAN;
         this.hitDice = 12;
         this._armorProficiencies = {
             none: true,
@@ -23,9 +25,9 @@ export class Barbarian extends Character {
         this.martialWeaponsProficiency();
         this.maxToolProficiencies = 0;
         this.maxLanguageProficiencies = 0;
-        this.saves=[strength, constitution];
+        this.saves = [strength, constitution];
         this.maxSkillsProficiencies = 2;
-        this.possibleSkills=[animalHandling, athletics, intimidation, nature, perception, survival];
+        this.possibleSkills = [animalHandling, athletics, intimidation, nature, perception, survival];
         this.features = ["Rage", "Unarmored Defense"];
     }
 
